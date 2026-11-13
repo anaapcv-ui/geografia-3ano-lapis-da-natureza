@@ -1,0 +1,2362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lápis da Natureza — Geografia 3º ano | Rios, ar e atividades econômicas</title>
+<style>
+:root{
+  --terra:#2D3A5C; --terra-claro:#5A6A9A; --terra-escuro:#1F2A4A;
+  --broto:#3FA34D; --broto-escuro:#2C7A37; --broto-claro:#CDEED1;
+  --agua:#2B8FD6; --agua-claro:#D6ECFB;
+  --sol:#F6C445; --sol-claro:#FFF1C2;
+  --creme:#FFFBF2; --papel:#FFFFFF;
+  --erro:#E2483D; --erro-claro:#FFD9D6;
+  --cinza:#9AA3B2; --cinza-claro:#E6E8EC;
+  --texto:#2B2F3A;
+  --urucum:#E8743B;
+  --sombra:0 4px 0 rgba(0,0,0,.08);
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; padding:0;
+  font-family:"Verdana","Trebuchet MS",sans-serif;
+  background:var(--creme);
+  color:var(--texto);
+  font-size:17px; line-height:1.65;
+}
+.wrap{max-width:900px;margin:0 auto;padding:0 14px 60px;}
+
+/* ===== CABEÇALHO ===== */
+header.topo{
+  background:linear-gradient(180deg,#FFFFFF 0%,#EAF6FF 55%,#D6ECFB 100%);
+  color:var(--terra); padding:18px 14px 14px; text-align:center;
+  border-bottom:6px solid var(--sol);
+}
+header.topo h1{margin:0;font-size:1.9rem;letter-spacing:.5px;}
+header.topo .sub{margin:6px 0 0;font-size:1rem;opacity:.95;}
+header.topo .prova{
+  display:inline-block;margin-top:10px;background:var(--sol);color:#2D3A5C;
+  font-weight:bold;padding:5px 14px;border-radius:20px;font-size:.92rem;
+}
+
+
+/* ===== ABAS ===== */
+nav.abas{
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+  background:#2D3A5C;padding:12px 10px;position:sticky;top:0;z-index:50;
+  box-shadow:0 3px 10px rgba(0,0,0,.25);
+}
+nav.abas button{
+  font-family:inherit;font-size:.92rem;font-weight:bold;cursor:pointer;
+  border:none;border-radius:12px;padding:10px 14px;
+  background:var(--sol-claro);color:#2D3A5C;
+  box-shadow:0 3px 0 #C99A00;transition:transform .12s;
+  display:flex;align-items:center;gap:6px;
+}
+nav.abas button:hover:not(.trancada){transform:translateY(-2px);}
+nav.abas button.ativa{background:var(--sol);box-shadow:0 3px 0 #A37C00;}
+nav.abas button.trancada{
+  background:#B9BFCB;color:#5C6370;box-shadow:0 3px 0 #8E95A3;cursor:not-allowed;
+}
+nav.abas button.concluida::after{content:"✅";font-size:.85rem;}
+nav.abas button.novo{animation:pulsa 1.1s ease-in-out 4;}
+@keyframes pulsa{0%,100%{box-shadow:0 3px 0 #C99A00;}50%{box-shadow:0 0 0 7px rgba(242,183,5,.55);}}
+
+/* ===== PAINÉIS ===== */
+.painel{display:none;animation:entra .3s ease;}
+.painel.ativo{display:block;}
+@keyframes entra{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+
+h2.tit{
+  font-size:1.5rem;margin:26px 0 6px;color:var(--terra);
+  border-bottom:4px dotted var(--broto-claro);padding-bottom:8px;
+}
+p.intro{background:#fff;border-left:7px solid var(--broto);border-radius:0 12px 12px 0;
+  padding:12px 16px;margin:12px 0 22px;box-shadow:var(--sombra);}
+
+/* ===== CADEADO ===== */
+.cadeado-aviso{
+  background:#EEF0F4;border:3px dashed #B3BAC7;border-radius:16px;
+  padding:26px 20px;text-align:center;margin:30px 0;
+}
+.cadeado-aviso .big{font-size:3rem;display:block;}
+.cadeado-aviso h3{margin:8px 0;color:#6b6257;}
+.cadeado-aviso p{margin:6px 0 0;font-size:1.02rem;}
+.cadeado-aviso .btn-voltar{
+  margin-top:16px;background:var(--broto);color:#fff;border:none;border-radius:12px;
+  padding:11px 20px;font-family:inherit;font-weight:bold;font-size:1rem;cursor:pointer;
+  box-shadow:0 3px 0 var(--broto-escuro);
+}
+
+/* ===== BARRA DE PROGRESSO ===== */
+.barra-box{background:#fff;border-radius:14px;padding:12px 16px;box-shadow:var(--sombra);margin:14px 0 22px;}
+.barra-fundo{background:var(--cinza-claro);border-radius:12px;height:20px;overflow:hidden;}
+.barra-fill{background:linear-gradient(90deg,var(--broto),var(--sol));height:100%;width:0;border-radius:12px;transition:width .4s;}
+.barra-txt{font-size:.9rem;font-weight:bold;margin-top:7px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+
+/* ===== GALERIAS (leitura) ===== */
+.galeria{
+  background:var(--papel);border-radius:18px;margin:16px 0;overflow:hidden;
+  box-shadow:0 3px 10px rgba(45,58,92,.14);border:3px solid transparent;
+}
+.galeria.aberta{border-color:var(--sol);}
+.galeria.feita{border-color:var(--broto);}
+.galeria > .cabeca{
+  display:flex;align-items:center;gap:12px;cursor:pointer;
+  padding:14px 16px;background:var(--broto-claro);
+}
+.galeria.feita > .cabeca{background:#CDEBCF;}
+.galeria.bloqueada > .cabeca{background:#E6E8EC;cursor:not-allowed;}
+.cabeca .num{
+  background:var(--terra);color:#FFF8EC;border-radius:50%;
+  width:40px;height:40px;min-width:40px;display:flex;align-items:center;justify-content:center;
+  font-weight:bold;font-size:.95rem;
+}
+.galeria.feita .cabeca .num{background:var(--broto-escuro);}
+.cabeca .nome{font-weight:bold;font-size:1.06rem;flex:1;}
+.cabeca .pag{font-size:.78rem;opacity:.75;display:block;font-weight:normal;}
+.cabeca .seta{font-size:1.2rem;}
+.corpo{display:none;padding:4px 18px 20px;}
+.galeria.aberta .corpo{display:block;}
+
+.texto p{margin:12px 0;}
+.caixa-chave{
+  background:var(--sol-claro);border:3px solid var(--sol);border-radius:14px;
+  padding:12px 16px;margin:16px 0;
+}
+.caixa-chave h4{margin:0 0 6px;font-size:1rem;color:#7a5c00;}
+.caixa-chave ul{margin:6px 0 0;padding-left:20px;}
+.caixa-chave li{margin:5px 0;}
+b.destaque{background:var(--sol-claro);padding:1px 5px;border-radius:5px;}
+.curiosidade{
+  background:var(--agua-claro);border-left:7px solid var(--agua);border-radius:0 12px 12px 0;
+  padding:10px 14px;margin:14px 0;font-size:.97rem;
+}
+
+/* ===== PERGUNTAS ===== */
+.pergunta{background:#F7F9FC;border-radius:14px;padding:14px 16px;margin:14px 0;border:2px solid #E1E6EE;}
+.pergunta .enunciado{font-weight:bold;margin:0 0 10px;}
+.alt{
+  display:block;width:100%;text-align:left;font-family:inherit;font-size:.99rem;
+  background:#fff;border:2px solid var(--cinza-claro);border-radius:11px;
+  padding:10px 13px;margin:7px 0;cursor:pointer;transition:.15s;
+}
+.alt:hover:not(:disabled){border-color:var(--sol);transform:translateX(3px);}
+.alt:disabled{cursor:default;}
+.alt.certa{background:#E4F7E5;border-color:var(--broto);font-weight:bold;}
+.alt.errada{background:var(--erro-claro);border-color:var(--erro);}
+.feedback{margin-top:9px;padding:10px 13px;border-radius:11px;font-size:.96rem;display:none;}
+.feedback.ok{background:#E4F7E5;border-left:6px solid var(--broto);display:block;}
+.feedback.nao{background:var(--erro-claro);border-left:6px solid var(--erro);display:block;}
+
+.btn-prox{
+  background:var(--broto);color:#fff;border:none;border-radius:12px;padding:12px 20px;
+  font-family:inherit;font-weight:bold;font-size:1rem;cursor:pointer;margin-top:12px;
+  box-shadow:0 3px 0 var(--broto-escuro);
+}
+.btn-prox:disabled{background:var(--cinza);box-shadow:0 3px 0 #7c8085;cursor:not-allowed;}
+.btn-sec{
+  background:var(--agua);color:#fff;border:none;border-radius:12px;padding:11px 18px;
+  font-family:inherit;font-weight:bold;cursor:pointer;box-shadow:0 3px 0 #1F5E94;margin:6px 4px 0 0;
+}
+.btn-sol{background:var(--sol);color:#2D3A5C;box-shadow:0 3px 0 #A37C00;}
+
+/* ===== MAPA MENTAL ===== */
+.mapa-area{background:#fff;border-radius:18px;padding:16px;box-shadow:var(--sombra);}
+.no-central{
+  background:var(--terra);color:#FFF8EC;border-radius:16px;padding:14px;text-align:center;
+  font-weight:bold;font-size:1.25rem;margin:0 auto 18px;max-width:330px;
+}
+.ramo{border-radius:14px;padding:12px 14px;margin:12px 0;border-left:9px solid;background:#FAFAF7;}
+.ramo h4{margin:0 0 8px;font-size:1.04rem;}
+.ramo .itens{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+.ramo .fixo{background:#fff;border:2px dashed #ccc;border-radius:10px;padding:5px 10px;font-size:.93rem;}
+.lacuna{display:inline-flex;flex-direction:column;gap:5px;background:#fff;border:2px solid var(--cinza-claro);border-radius:11px;padding:7px 9px;}
+.lacuna .pergunta-mini{font-size:.82rem;opacity:.8;}
+.lacuna .ops{display:flex;gap:6px;flex-wrap:wrap;}
+.lacuna button{
+  font-family:inherit;font-size:.92rem;cursor:pointer;border:2px solid var(--cinza-claro);
+  background:#fff;border-radius:9px;padding:6px 11px;transition:.15s;
+}
+.lacuna button:hover:not(:disabled){border-color:var(--sol);}
+.lacuna.ok{background:#E4F7E5;border-color:var(--broto);}
+.lacuna.ok .preenchida{font-weight:bold;color:var(--broto-escuro);}
+.lacuna button.err{background:var(--erro-claro);border-color:var(--erro);animation:balanca .45s;}
+@keyframes balanca{0%,100%{transform:translateX(0);}20%{transform:translateX(-7px);}40%{transform:translateX(7px);}60%{transform:translateX(-5px);}80%{transform:translateX(5px);}}
+.contador-mapa{
+  background:var(--sol);color:#2D3A5C;font-weight:bold;border-radius:14px;
+  padding:10px 16px;text-align:center;margin:0 0 16px;font-size:1.06rem;
+}
+.mapa-completo{display:none;background:#E4F7E5;border:3px solid var(--broto);border-radius:16px;padding:18px;text-align:center;margin-top:18px;}
+.mapa-completo.ver{display:block;}
+.mapa-area.completo .ramo{background:#fff;box-shadow:0 3px 10px rgba(0,0,0,.09);}
+
+/* ===== VERDADEIRO OU FALSO ===== */
+.vf-card{background:#fff;border-radius:18px;padding:22px 18px;box-shadow:var(--sombra);text-align:center;}
+.vf-frase{font-size:1.16rem;font-weight:bold;margin:16px 0 22px;min-height:70px;display:flex;align-items:center;justify-content:center;}
+.vf-botoes{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.vf-botoes button{
+  font-family:inherit;font-size:1.1rem;font-weight:bold;cursor:pointer;border:none;border-radius:14px;
+  padding:14px 30px;color:#fff;box-shadow:0 4px 0 rgba(0,0,0,.22);
+}
+.btn-v{background:var(--broto);} .btn-f{background:var(--erro);}
+.vf-expl{margin-top:16px;padding:14px;border-radius:12px;display:none;text-align:left;}
+.vf-expl.ver{display:block;}
+.estrelas{font-size:1.4rem;letter-spacing:2px;}
+.vf-final{display:none;text-align:center;background:#fff;border-radius:18px;padding:26px 18px;box-shadow:var(--sombra);}
+.vf-final.ver{display:block;}
+.trofeu{font-size:4rem;}
+
+/* ===== RESUMO ===== */
+.linha-tempo{position:relative;padding-left:34px;margin:18px 0;}
+.linha-tempo::before{content:"";position:absolute;left:11px;top:4px;bottom:4px;width:5px;background:var(--terra-claro);border-radius:3px;}
+.lt-item{position:relative;margin:0 0 16px;background:#fff;border-radius:13px;padding:11px 15px;box-shadow:var(--sombra);}
+.lt-item::before{content:"";position:absolute;left:-28px;top:16px;width:15px;height:15px;border-radius:50%;background:var(--sol);border:3px solid var(--terra);}
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:16px 0;}
+.palavra{background:#fff;border-radius:13px;padding:12px 14px;box-shadow:var(--sombra);border-top:6px solid var(--broto);}
+.palavra b{color:var(--terra);display:block;margin-bottom:3px;}
+.postit{
+  background:var(--sol-claro);border:2px solid var(--sol);border-radius:4px;
+  padding:12px 15px;margin:12px 0;box-shadow:3px 3px 0 rgba(0,0,0,.09);
+  transform:rotate(-.5deg);
+}
+.alerta{background:var(--erro-claro);border-left:7px solid var(--erro);border-radius:0 12px 12px 0;padding:11px 15px;margin:12px 0;}
+.relampago{background:#fff;border-radius:13px;margin:10px 0;box-shadow:var(--sombra);overflow:hidden;}
+.relampago .q{padding:12px 15px;cursor:pointer;font-weight:bold;background:var(--agua-claro);}
+.relampago .r{display:none;padding:12px 15px;border-top:2px dashed var(--agua);}
+.relampago.ab .r{display:block;}
+
+/* ===== SIMULADO ===== */
+.sim-q{background:#fff;border-radius:15px;padding:15px 17px;margin:14px 0;box-shadow:var(--sombra);}
+.sim-q .num-q{background:var(--terra);color:#FFF8EC;border-radius:9px;padding:3px 10px;font-weight:bold;font-size:.86rem;}
+.sim-q .enun{font-weight:bold;margin:9px 0 11px;}
+.sim-alt{display:block;width:100%;text-align:left;font-family:inherit;font-size:.99rem;background:#F7F9FC;border:2px solid var(--cinza-claro);border-radius:11px;padding:10px 13px;margin:6px 0;cursor:pointer;}
+.sim-alt:hover:not(:disabled){border-color:var(--sol);}
+.sim-alt.marcada{background:var(--sol-claro);border-color:var(--sol);font-weight:bold;}
+.sim-alt.gab-certa{background:#E4F7E5;border-color:var(--broto);font-weight:bold;}
+.sim-alt.gab-errada{background:#F3F3F3;border-color:var(--cinza);opacity:.95;}
+.sim-coment{display:none;margin-top:10px;padding:12px 14px;background:#FFFDF5;border:2px dashed var(--sol);border-radius:12px;font-size:.95rem;}
+.sim-coment.ver{display:block;}
+.sim-coment .ce{color:var(--broto-escuro);font-weight:bold;}
+.sim-coment ul{margin:8px 0 0;padding-left:20px;}
+.resultado{display:none;background:#fff;border-radius:18px;padding:26px 18px;text-align:center;box-shadow:var(--sombra);margin:20px 0;}
+.resultado.ver{display:block;}
+.codigo{
+  background:var(--terra);color:var(--sol);font-family:"Courier New",monospace;font-weight:bold;
+  font-size:1.5rem;letter-spacing:3px;border-radius:12px;padding:12px 18px;display:inline-block;margin:12px 0;
+}
+
+/* ===== RODAPÉ / SALVAMENTO / RELATÓRIO ===== */
+.rodape-box{background:#fff;border-radius:18px;padding:16px;box-shadow:var(--sombra);margin:34px 0 12px;}
+.rodape-box h3{margin:0 0 10px;font-size:1.1rem;color:var(--terra);}
+.save-info{font-size:.86rem;opacity:.8;margin:6px 0 12px;}
+.botoes-save{display:flex;gap:9px;flex-wrap:wrap;}
+.botoes-save button{font-family:inherit;font-weight:bold;font-size:.93rem;cursor:pointer;border:none;border-radius:11px;padding:10px 15px;}
+.b-exp{background:var(--agua);color:#fff;box-shadow:0 3px 0 #1F5E94;}
+.b-imp{background:var(--broto);color:#fff;box-shadow:0 3px 0 var(--broto-escuro);}
+.b-zer{background:var(--erro);color:#fff;box-shadow:0 3px 0 #A8352C;}
+input.cod{font-family:"Courier New",monospace;font-size:1.05rem;padding:10px 12px;border:2px solid var(--cinza-claro);border-radius:11px;width:190px;text-transform:uppercase;}
+#relatorio{display:none;margin-top:16px;background:#F7F9FC;border-radius:14px;padding:15px;}
+#relatorio.ver{display:block;}
+#relatorio table{width:100%;border-collapse:collapse;font-size:.92rem;}
+#relatorio td,#relatorio th{border-bottom:1px solid #DDE2EA;padding:7px 5px;text-align:left;vertical-align:top;}
+.selo-lib{background:var(--sol);color:#2D3A5C;font-weight:bold;border-radius:20px;padding:5px 14px;display:inline-block;margin:8px 0;}
+
+/* ===== MODAL ===== */
+.modal-fundo{display:none;position:fixed;inset:0;background:rgba(20,28,48,.72);z-index:200;align-items:center;justify-content:center;padding:18px;}
+.modal-fundo.ver{display:flex;}
+.modal{background:#fff;border-radius:18px;padding:24px 20px;max-width:430px;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.4);}
+.modal h3{margin:8px 0 10px;color:var(--terra);}
+.modal button{background:var(--broto);color:#fff;border:none;border-radius:12px;padding:11px 20px;font-family:inherit;font-weight:bold;cursor:pointer;margin:9px 5px 0;box-shadow:0 3px 0 var(--broto-escuro);}
+.modal button.cinza{background:var(--cinza);box-shadow:0 3px 0 #70757a;}
+
+.pe-material{text-align:center;margin:26px 0 10px;}
+.dica-pais{font-size:.85rem;opacity:.8;margin-top:10px;line-height:1.5;}
+@media(max-width:560px){
+  body{font-size:16px;}
+  header.topo h1{font-size:1.45rem;}
+  nav.abas button{font-size:.84rem;padding:9px 11px;}
+  .grade{grid-template-columns:1fr;}
+}
+
+/* ===== TEMA LÁPIS DA NATUREZA ===== */
+.topo .marca{font-size:2.2rem;line-height:1;display:block;margin-bottom:2px;}
+.paisagem{display:block;width:100%;max-width:640px;margin:10px auto 4px;border-radius:16px;border:4px solid #fff;box-shadow:0 4px 14px rgba(45,58,92,.18);background:#fff;}
+.paisagem *{transition:fill .8s, stroke .8s;}
+.estojo{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px auto 2px;max-width:640px;}
+.lapis{position:relative;display:inline-flex;align-items:center;justify-content:center;width:40px;height:22px;
+  border-radius:4px 0 0 4px;font-size:.72rem;font-weight:bold;color:#fff;background:#D5D9E0;margin-right:10px;}
+.lapis::after{content:"";position:absolute;right:-10px;top:0;border-left:10px solid currentColor;border-top:11px solid transparent;border-bottom:11px solid transparent;color:inherit;}
+.lapis::after{border-left-color:#F3D9B1;}
+.lapis.on{box-shadow:0 2px 0 rgba(0,0,0,.18);animation:acende .6s ease;}
+@keyframes acende{0%{transform:scale(.7);}60%{transform:scale(1.15);}100%{transform:scale(1);}}
+.legenda-estojo{font-size:.8rem;opacity:.8;margin:2px 0 0;}
+.galeria > .cabeca .num{border:3px solid rgba(255,255,255,.7);}
+.pegadinhas{background:var(--erro-claro);border:3px solid var(--erro);border-radius:16px;padding:12px 18px;margin:22px 0 14px;}
+.pegadinhas h3{margin:4px 0 6px;color:#A8352C;}
+.pegadinhas li{margin:6px 0;}
+.cobertura{background:#fff;border-radius:16px;padding:12px 16px;box-shadow:var(--sombra);margin:14px 0;}
+.cobertura h3{margin:4px 0 8px;color:var(--terra);}
+.cobertura table{width:100%;border-collapse:collapse;font-size:.93rem;}
+.cobertura td,.cobertura th{border-bottom:1px solid #DDE2EA;padding:7px 5px;text-align:left;vertical-align:top;}
+.mapa-area{background:repeating-linear-gradient(0deg,#fff,#fff 27px,#EEF3F8 28px);}
+.mapa-area:not(.completo) .ramo h4,.mapa-area:not(.completo) .ramo .fixo{filter:grayscale(1);opacity:.7;}
+.mapa-area:not(.completo) .ramo{border-left-color:#C9CED6 !important;}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <span class="marca">🦦✏️</span>
+  <h1>Lápis da Natureza</h1>
+  <p class="sub">Geografia · 3º ano · Unidade 11 <b>Conservação de Rios e do Ar</b> e Unidade 12 <b>Atividades Econômicas e Ambiente</b></p>
+  <svg class="paisagem" viewBox="0 0 640 230" xmlns="http://www.w3.org/2000/svg" aria-label="Paisagem que ganha cor a cada lápis concluído">
+    <rect data-l="2" data-cor="#BFE3FF" data-cinza="#EEF0F3" x="0" y="0" width="640" height="150"/>
+    <path data-l="12" data-traco="#E2483D" fill="none" stroke-width="7" d="M150 150 A170 120 0 0 1 490 150"/>
+    <path data-l="12" data-traco="#F6C445" fill="none" stroke-width="7" d="M164 150 A156 107 0 0 1 476 150"/>
+    <path data-l="12" data-traco="#2B8FD6" fill="none" stroke-width="7" d="M178 150 A142 94 0 0 1 462 150"/>
+    <circle data-l="6" data-cor="#F6C445" cx="575" cy="42" r="24"/>
+    <g data-l="2" data-cor="#FFFFFF" data-cinza="#DCDFE5"><ellipse cx="90" cy="40" rx="34" ry="13"/><ellipse cx="118" cy="32" rx="24" ry="12"/><ellipse cx="300" cy="28" rx="30" ry="11"/><ellipse cx="325" cy="22" rx="20" ry="10"/></g>
+    <path data-l="5" data-cor="#2E7D32" d="M0 130 Q30 100 60 118 Q90 92 125 115 Q160 95 195 118 Q230 98 265 120 Q300 100 335 122 Q370 104 405 120 Q445 98 480 118 Q520 100 560 116 Q600 98 640 115 L640 150 L0 150 Z"/>
+    <g data-l="6" data-cor="#5A6A9A" data-cinza="#C9CED6"><rect x="497" y="60" width="5" height="70"/><polygon points="499,60 499,22 503,58"/><polygon points="499,60 532,72 501,64"/><polygon points="499,60 468,75 497,63"/></g>
+    <rect x="0" y="146" width="640" height="84" fill="#EEF1E8"/>
+    <path data-l="10" data-cor="#A0693A" d="M0 230 L0 150 Q60 120 130 150 Q170 168 190 230 Z"/>
+    <polygon data-l="8" data-cor="#E9C46A" points="400,152 640,148 640,230 455,230"/>
+    <g data-l="8" data-cor="#C99A1E" data-cinza="#C7CBD2"><rect x="470" y="170" width="160" height="4"/><rect x="480" y="190" width="150" height="4"/><rect x="490" y="210" width="140" height="4"/></g>
+    <g data-l="9" data-cor="#D94F3D"><rect x="560" y="120" width="44" height="32"/><polygon points="555,121 582,100 609,121"/></g>
+    <g data-l="11" data-cor="#1FB5C9"><circle cx="500" cy="182" r="3.5"/><circle cx="530" cy="182" r="3.5"/><circle cx="560" cy="182" r="3.5"/><circle cx="590" cy="182" r="3.5"/><circle cx="515" cy="202" r="3.5"/><circle cx="545" cy="202" r="3.5"/><circle cx="575" cy="202" r="3.5"/><circle cx="605" cy="202" r="3.5"/></g>
+    <path data-l="1" data-cor="#2B8FD6" d="M300 148 C330 160 250 175 280 190 C310 205 380 205 360 230 L250 230 C270 210 210 200 235 185 C260 168 250 158 270 148 Z"/>
+    <g data-l="4" data-cor="#3FA34D"><circle cx="215" cy="160" r="12"/><circle cx="205" cy="198" r="13"/><circle cx="390" cy="170" r="12"/><circle cx="405" cy="205" r="13"/><circle cx="335" cy="150" r="9"/></g>
+    <g data-l="4" data-cor="#7A4E2A" data-cinza="#C7CBD2"><rect x="213" y="170" width="4" height="10"/><rect x="203" y="209" width="4" height="10"/><rect x="388" y="180" width="4" height="10"/><rect x="403" y="216" width="4" height="10"/></g>
+    <g data-l="3" data-cor="#F28C28" data-cinza="#C7CBD2"><ellipse cx="275" cy="212" rx="8" ry="4"/><polygon points="283,212 290,207 290,217"/><ellipse cx="320" cy="200" rx="7" ry="3.5"/><polygon points="313,200 306,196 306,204"/></g>
+    <path data-l="7" data-cor="#C0392B" data-cinza="#B9BFCB" d="M262 176 Q285 186 310 176 L304 182 Q285 188 268 182 Z"/>
+  </svg>
+  <div class="estojo" id="estojo"></div>
+  <p class="legenda-estojo">✏️ Estojo da Nina: cada lápis concluído pinta uma parte da paisagem.</p>
+  <span class="prova">📅 Prova: 16/11 — segunda-feira</span>
+</header>
+
+<nav class="abas" id="abas"></nav>
+
+<div class="wrap">
+
+  <div class="barra-box">
+    <div class="barra-fundo"><div class="barra-fill" id="barraGeral"></div></div>
+    <div class="barra-txt"><span id="txtGeral">A Nina está pronta para colorir!</span><span id="txtEtapa"></span></div>
+  </div>
+
+  <!-- ================= LEITURA GUIADA ================= -->
+  <section class="painel" id="p-leitura">
+    <h2 class="tit">📖 Leitura Guiada — Os Lápis da Nina</h2>
+    <p class="intro">Oi! Eu sou a <b>Nina</b>, uma lontra que mora no rio e adora desenhar. 🦦<br>
+    Encontrei este desenho de paisagem lá em cima <b>todo cinza e apagado</b> — parece que a poluição levou as cores embora!
+    Cada <b>lápis</b> é um pedaço do livro. Leia o texto, responda as <b>3 perguntas</b> e o lápis pinta uma parte do desenho.
+    Aí o próximo lápis se abre. Vamos devolver as cores da natureza? 🎨</p>
+    <div id="lapisLista"></div>
+    <div id="extrasLeitura"></div>
+    <div id="fimLeitura"></div>
+  </section>
+
+  <!-- ================= MAPA MENTAL ================= -->
+  <section class="painel" id="p-mapa">
+    <h2 class="tit">🧠 Mapa das Cores</h2>
+    <p class="intro">Agora vamos <b>organizar</b> tudo o que você leu num mapa só. Cada ramo é um lápis da leitura.
+    Algumas palavras caíram do mapa! Clique na palavra certa para <b>encaixar cada peça</b>.
+    Quando todas estiverem no lugar, o mapa ganha todas as cores. Se errar, tudo bem: é só tentar de novo. 🧩</p>
+    <div id="mapaWrap"></div>
+  </section>
+
+  <!-- ================= VERDADEIRO OU FALSO ================= -->
+  <section class="painel" id="p-vf">
+    <h2 class="tit">✅ Colorido ou Borrado?</h2>
+    <p class="intro">A Nina vai mostrar <b>12 frases</b>. Frase verdadeira deixa o desenho <b>colorido</b>; frase falsa deixa
+    <b>borrado</b>! Clique em <b>VERDADEIRO</b> ou <b>FALSO</b> e descubra o porquê. 🦦</p>
+    <div id="vfWrap"></div>
+  </section>
+
+  <!-- ================= RESUMO ================= -->
+  <section class="painel" id="p-resumo">
+    <h2 class="tit">🗺️ Estojo da Nina</h2>
+    <p class="intro">Este é o estojo de revisão da Nina, para dar uma última olhada antes da prova.
+    Leia até o fim e clique no botão lá embaixo! ✏️</p>
+    <div id="resumoWrap"></div>
+  </section>
+
+  <!-- ================= SIMULADO ================= -->
+  <section class="painel" id="p-simulado">
+    <h2 class="tit">📝 A Grande Pintura</h2>
+    <p class="intro">Chegou a hora! São <b>25 perguntas</b> sobre tudo o que você estudou.
+    Responda com calma — dá para voltar e trocar a resposta antes de enviar. 💪</p>
+    <div id="simWrap"></div>
+  </section>
+
+  <!-- ================= RODAPÉ ================= -->
+  <div class="rodape-box">
+    <h3>💾 Seu progresso fica salvo</h3>
+    <p class="save-info" id="saveInfo">Ainda não salvei nada.</p>
+    <div class="botoes-save">
+      <button class="b-exp" id="btnExportar">📥 Exportar</button>
+      <button class="b-imp" id="btnImportar">📤 Importar</button>
+      <button class="b-zer" id="btnZerar">🗑️ Zerar tudo</button>
+    </div>
+    <input type="file" id="fileImp" accept=".json" style="display:none">
+  </div>
+
+  <div class="rodape-box">
+    <h3>📊 Relatório para os pais</h3>
+    <p class="save-info">Digite o código do Simulado (SIM-…) ou o código da família para abrir.</p>
+    <div class="botoes-save">
+      <input class="cod" id="inpCod" placeholder="SIM-00-XX" maxlength="12">
+      <button class="b-exp" id="btnRel">Abrir relatório</button>
+    </div>
+    <div id="relatorio"></div>
+    <p class="dica-pais">💡 <b>Dica para os pais:</b> os materiais abrem <b>um por vez</b>, na ordem — cada um destrava o
+    seguinte. O progresso fica salvo <b>neste aparelho e neste navegador</b>: se a criança estudar no tablet, o computador
+    não sabe. Use <b>📥 Exportar</b> num aparelho e <b>📤 Importar</b> no outro, ou use o código da família para liberar
+    tudo de uma vez.</p>
+  </div>
+
+</div>
+
+<div class="modal-fundo" id="modalFundo">
+  <div class="modal" id="modalCaixa"></div>
+</div>
+
+<script>
+/* =====================================================================
+   DADOS — tudo retirado de: Phases Geografia 3 – Livro 2,
+   Unidade 11 "Conservação de Rios e do Ar" (pp. 74-85) e
+   Unidade 12 "Atividades Econômicas e Ambiente" (pp. 88-96)
+   ===================================================================== */
+
+var SLUG = "geografia3_lapis_natureza";
+
+var LEITURA = [
+/* ---------------- LÁPIS 1 ---------------- */
+{
+  n:"Lápis 1", nome:"Para que servem os rios?", pag:"páginas 74 e 75", cor:"#2B8FD6",
+  texto:`
+  <p>A Nina é uma <b>lontra</b> que adora desenhar. Ela vive num rio e encontrou um desenho de paisagem todo
+  <b>cinza e apagado</b>. Para devolver as cores, ela precisa da sua ajuda! O primeiro lápis é o
+  <b class="destaque">azul do rio</b>.</p>
+  <p>Os <b>rios</b> e o <b>ar</b> são elementos <b class="destaque">essenciais para a sobrevivência dos seres vivos</b>
+  e para manter a <b>qualidade do ambiente</b>.</p>
+  <p>Os rios fornecem água para várias atividades do dia a dia: <b>beber</b>, <b>lavar roupa</b>, fazer a
+  <b>higiene pessoal</b>, <b>irrigar as plantações</b> e a <b>produção industrial</b>, entre outras.</p>
+  <div class="caixa-chave">
+    <h4>🏞️ Outros usos dos rios (além de dar água)</h4>
+    <ul>
+      <li>🐟 <b>Obtenção de alimentos:</b> os rios abrigam uma grande diversidade de vida e são fonte de alimento para o ser humano e outros animais.</li>
+      <li>🚤 <b>Transporte:</b> de <b>mercadorias e pessoas</b>.</li>
+      <li>🛶 <b>Recreação e turismo:</b> natação, canoagem, pesca e observação da vida selvagem.</li>
+      <li>⚡ <b>Geração de energia elétrica:</b> as <b>usinas hidrelétricas</b> captam a <b>força das águas em movimento</b> e a transformam em eletricidade.</li>
+    </ul>
+  </div>
+  <div class="curiosidade">🦦 <b>A Nina conta:</b> a usina hidrelétrica de <b>Itaipu Binacional</b> fica no <b>rio Paraná</b>,
+  na fronteira entre o <b>Brasil e o Paraguai</b>. Ela é a <b>segunda</b> maior geradora de energia hidrelétrica do mundo —
+  atrás apenas da usina <b>Três Gargantas, na China</b>.</div>
+  <p>No Brasil, os rios são muito importantes para os modos de vida dos <b>povos indígenas</b> e das
+  <b>comunidades tradicionais</b>: eles fornecem água e alimentos, servem para o <b>deslocamento</b> dessas pessoas e têm
+  <b>valor afetivo e cultural</b>.</p>`,
+  qs:[
+    {q:"Como uma usina hidrelétrica produz eletricidade?",
+     a:["Captando a força das águas em movimento","Usando o vento que gira as hélices","Queimando a fumaça das fábricas","Guardando a luz do Sol em caixas"], c:0,
+     fb:["Isso! O livro diz que as hidrelétricas captam a força das águas em movimento e a transformam em eletricidade.",
+         "Quem usa o vento é a energia <b>eólica</b>. A hidrelétrica usa a <b>força das águas</b>.",
+         "Fumaça é poluição, não é fonte de energia da hidrelétrica. Ela usa a <b>força das águas em movimento</b>.",
+         "Não. A hidrelétrica usa a <b>força das águas em movimento</b> dos rios."]},
+    {q:"Qual frase sobre a usina de Itaipu está CERTA?",
+     a:["Fica no rio Paraná, na fronteira entre Brasil e Paraguai, e é a 2ª maior geradora hidrelétrica do mundo","É a maior usina hidrelétrica do mundo","Fica na China, no rio Três Gargantas","É um parque de energia eólica no Ceará"], c:0,
+     fb:["Exato! Rio Paraná, Brasil e Paraguai, e a <b>segunda</b> maior do mundo.",
+         "Cuidado, pegadinha! Itaipu é a <b>segunda</b>. A maior é a usina <b>Três Gargantas</b>, na China.",
+         "Três Gargantas é <b>outra usina</b>, que fica na China. Itaipu fica no <b>rio Paraná</b>, entre Brasil e Paraguai.",
+         "O parque eólico do livro fica em Aracati (CE). Itaipu é uma <b>hidrelétrica</b> no rio Paraná."]},
+    {q:"Uma família passeia de canoa pelo rio e fica observando os pássaros e os peixes. Qual uso do rio aparece aqui?",
+     a:["Recreação e turismo","Geração de energia elétrica","Produção industrial","Irrigação das plantações"], c:0,
+     fb:["Isso aí! Canoagem e observação da vida selvagem são <b>recreação e turismo</b>.",
+         "Não tem usina nenhuma na cena. Passear de canoa e observar animais é <b>recreação e turismo</b>.",
+         "Ninguém está fabricando nada. É <b>recreação e turismo</b>.",
+         "Irrigar é molhar plantações. Na cena, a família está passeando: <b>recreação e turismo</b>."]}
+  ]
+},
+/* ---------------- LÁPIS 2 ---------------- */
+{
+  n:"Lápis 2", nome:"Para que serve o ar?", pag:"página 75", cor:"#7EC8F2",
+  texto:`
+  <p>Agora a Nina pega o <b class="destaque">azul-clarinho do céu</b>. Além de água, a <b>maioria dos seres vivos precisa de
+  ar</b> para sobreviver. O <b>ar poluído</b> afeta diretamente a qualidade de vida <b>humana, animal e vegetal</b>.</p>
+  <div class="caixa-chave">
+    <h4>🌬️ Os 5 aspectos que mostram a importância do ar</h4>
+    <ul>
+      <li>🌧️ <b>Distribuição das chuvas:</b> os <b>ventos (ar em movimento)</b> deslocam as nuvens de um local a outro e ajudam a distribuir as chuvas.</li>
+      <li>🌡️ <b>Regulação da temperatura:</b> os ventos podem <b>amenizar a sensação de calor</b> de um local, deixando-o mais fresco.</li>
+      <li>💨 <b>Transporte de poluentes:</b> o ar <b>dispersa</b> poluentes como <b>poeira, fuligem e gases tóxicos</b>, que fazem mal à saúde e ao ambiente.</li>
+      <li>✈️ <b>Suporte à aviação:</b> o ar permite o voo de aeronaves que transportam mercadorias e pessoas.</li>
+      <li>⚡ <b>Geração de energia:</b> a energia <b class="destaque">eólica</b> (do ar) é usada para produzir energia elétrica.</li>
+    </ul>
+  </div>
+  <div class="curiosidade">🦦 <b>A Nina mostra:</b> no livro há a foto de um <b>parque eólico em Aracati, no Ceará</b> (2018):
+  um monte de torres com hélices que giram com o vento e produzem eletricidade.</div>
+  <p><b>Proteger e conservar</b> a qualidade dos rios e do ar é fundamental para garantir um ambiente saudável para as
+  <b>gerações presentes e futuras</b> — ou seja, para nós e para quem ainda vai nascer.</p>`,
+  qs:[
+    {q:"Como o vento ajuda a distribuir as chuvas?",
+     a:["Deslocando as nuvens de um local para outro","Esquentando a água dos rios","Fazendo os rios correrem mais rápido","Apagando as queimadas"], c:0,
+     fb:["Isso! Os ventos (ar em movimento) levam as nuvens de um lugar a outro.",
+         "Não. O vento ajuda <b>levando as nuvens</b> de um lugar para outro.",
+         "O livro não fala disso. Os ventos ajudam porque <b>deslocam as nuvens</b>.",
+         "Não. A importância é que os ventos <b>deslocam as nuvens</b> e espalham as chuvas."]},
+    {q:"A energia eólica vem de onde?",
+     a:["Do ar (do vento)","Da força das águas dos rios","Da luz do Sol","Do mercúrio da mineração"], c:0,
+     fb:["Isso! O livro diz: a energia eólica (do ar) é usada para produzir energia elétrica.",
+         "Energia da força das águas é a <b>hidrelétrica</b>. A eólica vem do <b>ar</b>.",
+         "A energia do Sol é a <b>solar</b>. A eólica vem do <b>vento</b>.",
+         "Mercúrio é um produto tóxico, não uma fonte de energia. A eólica vem do <b>ar</b>."]},
+    {q:"Num dia muito quente, começa a soprar um vento fresquinho e todo mundo sente alívio. Qual importância do ar aparece aqui?",
+     a:["Regulação da temperatura","Suporte à aviação","Distribuição das chuvas","Transporte de poluentes"], c:0,
+     fb:["Perfeito! Os ventos podem amenizar a sensação de calor: é a <b>regulação da temperatura</b>.",
+         "Não tem avião na cena. O vento deixou o lugar mais fresco: <b>regulação da temperatura</b>.",
+         "Não choveu. O vento amenizou o calor: <b>regulação da temperatura</b>.",
+         "Ninguém falou de poeira ou fumaça. O vento amenizou o calor: <b>regulação da temperatura</b>."]}
+  ]
+},
+/* ---------------- LÁPIS 3 ---------------- */
+{
+  n:"Lápis 3", nome:"Rios limpos e rios poluídos", pag:"páginas 76 e 77", cor:"#F28C28",
+  texto:`
+  <p>Com o <b class="destaque">laranja dos peixinhos</b>, a Nina quer encher o rio de vida. Mas, para isso, a água precisa
+  estar limpa! No Brasil, as condições dos rios <b>variam muito</b>: há cursos de água <b>limpos</b> e outros <b>bem poluídos</b>.</p>
+  <p>Segundo o <b>Sistema Nacional de Informações sobre Saneamento (SNIS)</b>, <b class="destaque">menos da metade do esgoto</b>
+  gerado no país é <b>tratado</b>. Muitos rios têm altos níveis de contaminação por poluentes
+  <b>domésticos, agrícolas e industriais</b>.</p>
+  <p>A poluição reduz a qualidade da água e afeta o acesso à <b>água potável</b> e a <b>saúde dos seres vivos</b>.</p>
+  <div class="curiosidade">🦦 <b>Foto do livro:</b> o <b>rio Tietê</b> coberto por <b>espuma tóxica</b> em Salto (SP), em 2023.
+  Mesmo sendo <b>ilegal</b>, muitas indústrias ainda lançam água poluída diretamente nos rios.</div>
+  <div class="caixa-chave">
+    <h4>⛏️ Mineração ilegal também polui os rios</h4>
+    <ul>
+      <li>Usa produtos tóxicos, como o <b>mercúrio</b>, que pode contaminar a água durante a extração e o tratamento do minério.</li>
+      <li>O <b>desmatamento</b> onde os minérios são extraídos aumenta a <b>erosão</b> e a deposição de <b>sedimentos</b> nos rios.</li>
+      <li>O acúmulo de produtos tóxicos e sedimentos prejudica a <b>vida aquática</b> e a qualidade da água (foto: rio Couto de Magalhães, Roraima, 2023).</li>
+      <li>✅ <b>Para impedir:</b> monitoramento e conservação, junto com investimentos em <b>saneamento básico</b> e <b>políticas ambientais mais eficazes</b>.</li>
+    </ul>
+  </div>`,
+  qs:[
+    {q:"Segundo o SNIS, quanto do esgoto gerado no Brasil é tratado?",
+     a:["Menos da metade","Todo o esgoto","Mais da metade","Nenhum esgoto"], c:0,
+     fb:["Isso! Menos da metade do esgoto é tratado — o resto pode ir parar nos rios.",
+         "Infelizmente não. Segundo o SNIS, <b>menos da metade</b> é tratado.",
+         "Não. O livro diz <b>menos da metade</b>.",
+         "Não é nenhum: uma parte é tratada, mas é <b>menos da metade</b>."]},
+    {q:"Qual produto tóxico, usado na mineração ilegal, pode contaminar a água dos rios?",
+     a:["O mercúrio","A água da chuva","O ar puro","As raízes das plantas"], c:0,
+     fb:["Exato! O <b>mercúrio</b> contamina a água durante a extração e o tratamento do minério.",
+         "A chuva não é tóxica. O produto citado é o <b>mercúrio</b>.",
+         "Ar puro é bom! O produto tóxico é o <b>mercúrio</b>.",
+         "As raízes até protegem o rio! O tóxico é o <b>mercúrio</b>."]},
+    {q:"O que o livro diz que é essencial para impedir a mineração ilegal?",
+     a:["Monitoramento e conservação, com saneamento básico e políticas ambientais mais eficazes","Desmatar ainda mais as margens dos rios","Jogar mais sedimentos no rio","Usar mais mercúrio na extração"], c:0,
+     fb:["Isso! São esses os esforços que o livro aponta.",
+         "Desmatar <b>aumenta</b> a erosão — piora o problema.",
+         "Sedimentos acumulados <b>prejudicam</b> a vida aquática.",
+         "O mercúrio é justamente o que <b>contamina</b> a água."]}
+  ]
+},
+/* ---------------- LÁPIS 4 ---------------- */
+{
+  n:"Lápis 4", nome:"Bancos de areia e erosão", pag:"páginas 76 e 77", cor:"#3FA34D",
+  texto:`
+  <p>O <b class="destaque">verde da mata</b> vai pintar as árvores da beira do rio. E elas são muito importantes! Veja como se
+  forma um problema chamado <b>banco de areia</b>:</p>
+  <div class="caixa-chave">
+    <h4>🏖️ Como nasce um banco de areia (na ordem)</h4>
+    <ul>
+      <li>1️⃣ A <b>vegetação das margens</b> do rio é retirada.</li>
+      <li>2️⃣ O solo fica <b>desprotegido</b> e mais sujeito à <b>erosão</b>.</li>
+      <li>3️⃣ Quando <b>chove</b>, parte do solo e de outros materiais sólidos (como <b>rochas e galhos de árvore</b>) é levada pela água.</li>
+      <li>4️⃣ Tudo isso se deposita no <b>leito do rio</b>, formando os <b class="destaque">bancos de areia</b>.</li>
+    </ul>
+  </div>
+  <p>Os bancos de areia <b>interferem no fluxo das águas</b> do rio, atrapalham a <b>navegação</b> e
+  <b>aumentam a ocorrência de enchentes</b>. Ou seja: banco de areia <b>não</b> é sinal de rio saudável!</p>
+  <p>Como conservar os rios? <b class="destaque">Manter uma larga faixa de vegetação</b> ao longo de toda a extensão do rio.
+  As <b>raízes</b> ajudam a conter a erosão do solo e as plantas funcionam como uma <b>barreira</b> que impede que os
+  materiais sólidos cheguem até a água. Mas, em muitos locais, essa prática não é adotada.</p>
+  <div class="caixa-chave">
+    <h4>📖 Palavra do livro: EROSÃO</h4>
+    <p style="margin:4px 0">Processo em que o <b>solo e as rochas são desgastados</b> pela ação de agentes como a <b>água e o vento</b>,
+    formando <b>sedimentos</b> (materiais desprendidos da superfície terrestre). Os sedimentos são transportados e
+    depositados nas <b>partes mais baixas</b> de um rio ou de um terreno.</p>
+  </div>
+  <div class="curiosidade">🦦 <b>Brincadeira do livro — Tanque de areia:</b> numa caixa com areia, faça montanhas e vales e
+  despeje água com um regador. Você vai ver o caminho da água e como a erosão carrega os sedimentos!</div>`,
+  qs:[
+    {q:"Qual é a ordem certa da formação de um banco de areia?",
+     a:["Tiram a vegetação da margem → o solo sofre erosão → a chuva leva terra para o rio → a terra se acumula no leito","A terra se acumula no leito → tiram a vegetação → chove","Plantam árvores na margem → o rio fica fundo → forma o banco de areia","A chuva para → o rio seca → aparece a areia"], c:0,
+     fb:["Perfeito! Primeiro tiram a vegetação, depois vem a erosão, a chuva leva os materiais e eles se depositam no leito.",
+         "A ordem está trocada: o acúmulo no leito é o <b>último</b> passo.",
+         "Plantar árvores <b>protege</b> o rio — é a solução, não a causa.",
+         "O livro explica que o banco de areia vem da <b>terra levada pela chuva</b> depois que tiram a vegetação."]},
+    {q:"Os bancos de areia indicam que o rio está saudável?",
+     a:["Não: eles atrapalham o fluxo das águas e a navegação e aumentam as enchentes","Sim, porque deixam o rio mais bonito","Sim, porque ajudam os barcos a navegar","Sim, porque diminuem as enchentes"], c:0,
+     fb:["Isso! É exatamente a frase falsa do exercício do livro: banco de areia é sinal de problema.",
+         "Beleza não é o ponto. Eles <b>atrapalham</b> o rio.",
+         "É o contrário: eles <b>atrapalham</b> a navegação.",
+         "É o contrário: eles <b>aumentam</b> as enchentes."]},
+    {q:"Por que a vegetação na margem protege o rio?",
+     a:["As raízes seguram o solo e as plantas formam uma barreira contra os materiais sólidos","Porque as plantas bebem toda a água do rio","Porque as folhas deixam a água mais quente","Porque as plantas fazem chover mais no rio"], c:0,
+     fb:["Exato! Raízes contêm a erosão e as plantas são uma barreira.",
+         "Não. A proteção vem das <b>raízes</b> e da <b>barreira</b> que as plantas formam.",
+         "Não é isso. As plantas protegem segurando o solo e servindo de <b>barreira</b>.",
+         "O livro não diz isso. Elas protegem com as <b>raízes</b> e como <b>barreira</b>."]}
+  ]
+},
+/* ---------------- LÁPIS 5 ---------------- */
+{
+  n:"Lápis 5", nome:"Como está o ar no Brasil?", pag:"página 78", cor:"#2E7D32",
+  texto:`
+  <p>O <b class="destaque">verde-escuro da floresta</b> pinta o fundo da paisagem. E a floresta tem tudo a ver com o ar!</p>
+  <p>As condições do ar no Brasil são influenciadas por fatores como a <b>industrialização</b> e o <b>desmatamento</b>.</p>
+  <p>Grandes cidades, como <b>São Paulo, Rio de Janeiro e Belo Horizonte</b>, enfrentam sérios problemas de poluição do ar
+  porque têm <b class="destaque">alta concentração de indústrias e veículos</b>. O <b>desmatamento</b> e as <b>queimadas</b>
+  também contribuem para a poluição do ar.</p>
+  <div class="caixa-chave">
+    <h4>😷 O que o ar poluído causa</h4>
+    <ul>
+      <li><b>Na saúde:</b> problemas respiratórios, como <b>asma e bronquite</b>.</li>
+      <li><b>No ambiente:</b> pode afetar a <b>qualidade do solo</b>, a <b>diversidade da vida animal e vegetal</b> e os <b>ambientes aquáticos</b>.</li>
+    </ul>
+  </div>
+  <div class="curiosidade">🦦 <b>Fotos do livro:</b> uma área desmatada em Querência (MT), 2022, e um homem usando
+  <b>máscara</b> em Manaus (AM), 2023, para se proteger do ar poluído pelas <b>queimadas na Amazônia</b>.</div>
+  <p>O Brasil tem vastas florestas, como a <b>Floresta Amazônica</b>, que <b class="destaque">absorvem os poluentes do ar</b> e
+  ajudam a <b>estabilizar o ambiente</b>. Mas o desmatamento e as queimadas são uma <b>ameaça</b> às florestas.</p>`,
+  qs:[
+    {q:"Por que São Paulo, Rio de Janeiro e Belo Horizonte enfrentam sérios problemas de poluição do ar?",
+     a:["Porque têm alta concentração de indústrias e veículos","Porque têm muitas praças e parques","Porque ficam perto de hidrelétricas","Porque chove demais nessas cidades"], c:0,
+     fb:["Isso! É a resposta do livro: muitas indústrias e muitos veículos.",
+         "Praças e parques <b>ajudam</b> a melhorar o ar!",
+         "Não é isso. O motivo é a <b>alta concentração de indústrias e veículos</b>.",
+         "Chuva não é a causa. O motivo são as <b>indústrias e os veículos</b>."]},
+    {q:"Respirar ar poluído pode causar quais problemas de saúde?",
+     a:["Problemas respiratórios, como asma e bronquite","Cárie nos dentes","Ossos quebrados","Nenhum problema"], c:0,
+     fb:["Exato! Asma e bronquite são problemas respiratórios.",
+         "Cárie não tem a ver com o ar. O livro cita <b>asma e bronquite</b>.",
+         "Não. O ar poluído afeta a <b>respiração</b>: asma e bronquite.",
+         "Faz mal, sim! Pode causar <b>asma e bronquite</b>."]},
+    {q:"Qual é o papel da Floresta Amazônica para o ar?",
+     a:["Absorve poluentes do ar e ajuda a estabilizar o ambiente","Produz a fumaça que polui as cidades","Aumenta a poluição dos rios","Não tem nenhuma relação com o ar"], c:0,
+     fb:["Isso! As florestas absorvem os poluentes do ar.",
+         "A fumaça vem das <b>queimadas</b>, que são uma ameaça à floresta.",
+         "Não. A floresta <b>absorve poluentes do ar</b>.",
+         "Tem tudo a ver: ela <b>absorve os poluentes do ar</b>."]}
+  ]
+},
+/* ---------------- LÁPIS 6 ---------------- */
+{
+  n:"Lápis 6", nome:"Como deixar o ar mais limpo", pag:"páginas 79 e 80", cor:"#F6C445",
+  texto:`
+  <p>Com o <b class="destaque">amarelo do Sol</b>, a Nina deixa o céu brilhando. Para reduzir a poluição do ar, é preciso
+  adotar políticas e práticas que <b>reduzam as emissões de poluentes industriais e veiculares</b> (das indústrias e dos veículos).</p>
+  <div class="caixa-chave">
+    <h4>🌻 Medidas para melhorar o ar</h4>
+    <ul>
+      <li>⚡ Investir em <b>energias limpas</b>, como a <b class="destaque">eólica e a solar</b>.</li>
+      <li>🏙️ <b>Nas cidades:</b> criar e expandir <b>áreas verdes</b>, como <b>praças, parques e jardins</b>.</li>
+      <li>🌾 <b>Na área rural:</b> <b>evitar queimadas</b> e <b>preservar a vegetação nativa</b>.</li>
+    </ul>
+  </div>
+  <p>No livro há duas fotos de atividades que causam poluição do ar: <b>(A)</b> um <b>veículo</b> soltando fumaça pelo
+  escapamento e <b>(B)</b> uma <b>indústria</b> lançando fumaça no ar, em Telêmaco Borba (PR).</p>
+  <div class="caixa-chave">
+    <h4>🗺️ Você é o geógrafo: a poluição viaja!</h4>
+    <p style="margin:4px 0">A <b>água e o ar se deslocam</b> no ambiente. Por isso a poluição dos rios e do ar afeta muitas pessoas:</p>
+    <ul>
+      <li>💨 A <b>fumaça de uma queimada</b> pode atingir populações <b>muito distantes</b> do lugar onde ela começou.</li>
+      <li>💧 A água contaminada por <b>esgoto doméstico</b> ou por uma <b>indústria</b> pode prejudicar a <b>pesca</b> e o
+      <b>abastecimento de água</b> ao longo de extensos trechos de um rio.</li>
+    </ul>
+    <p style="margin:6px 0 0">O mapa <b>"Brasil: qualidade do ar (09/09/2024)"</b> usa <b>cores</b> para mostrar a qualidade do ar:
+    <b>boa, moderada, não saudável para grupos sensíveis, pouco saudável, muito danosa e perigosa</b>. Uma chaminha 🔥 marca as <b>queimadas</b>.</p>
+  </div>`,
+  qs:[
+    {q:"Qual destas é uma medida para melhorar o ar NAS CIDADES?",
+     a:["Criar e expandir áreas verdes, como praças, parques e jardins","Fazer queimadas","Aumentar a fumaça dos veículos","Derrubar as árvores das praças"], c:0,
+     fb:["Isso! Áreas verdes ajudam a recuperar a qualidade do ar nas cidades.",
+         "Queimadas <b>poluem</b> o ar.",
+         "Fumaça de veículos é justamente o que precisa <b>diminuir</b>.",
+         "É o contrário: é preciso <b>criar</b> áreas verdes."]},
+    {q:"Uma queimada aconteceu bem longe de uma cidade. Mesmo assim, o céu dessa cidade ficou cheio de fumaça. Por quê?",
+     a:["Porque o ar se desloca e leva a fumaça para lugares distantes","Porque a fumaça fica só onde o fogo começou","Porque a cidade tinha muitos parques","Porque choveu muito na cidade"], c:0,
+     fb:["Perfeito! A poluição viaja: a fumaça pode atingir populações muito distantes.",
+         "Não fica! O ar se desloca e a fumaça <b>viaja</b>.",
+         "Parques ajudam a limpar o ar, não trazem fumaça.",
+         "A chuva não traz fumaça. O que aconteceu é que o <b>ar se desloca</b>."]},
+    {q:"Quais são as energias limpas citadas pelo livro?",
+     a:["Eólica e solar","Fumaça e fuligem","Queimada e desmatamento","Mercúrio e esgoto"], c:0,
+     fb:["Isso! Energia eólica (do vento) e solar (do Sol).",
+         "Fumaça e fuligem são <b>poluentes</b>.",
+         "Queimada e desmatamento <b>poluem</b> o ar.",
+         "Mercúrio e esgoto <b>poluem</b> a água."]}
+  ]
+},
+/* ---------------- LÁPIS 7 ---------------- */
+{
+  n:"Lápis 7", nome:"Os guardiões da natureza", pag:"páginas 81 e 82", cor:"#C0392B",
+  texto:`
+  <p>O <b class="destaque">vermelho-urucum</b> pinta a canoa que navega no rio. Ela lembra as pessoas que cuidam dos rios há muito tempo!</p>
+  <p><b>Povos indígenas</b> e <b>comunidades tradicionais</b> (<b>quilombolas, ribeirinhos, caiçaras, seringueiros</b>, entre outras)
+  têm um papel <b>fundamental</b> na manutenção da boa qualidade dos rios e do ar.</p>
+  <p>Ao longo dos séculos, esses grupos desenvolveram <b>conhecimentos e práticas de cuidado do solo, da vegetação e das águas</b>
+  que permitem que vivam em <b>harmonia com o ambiente</b>. Suas técnicas de extração de recursos naturais procuram
+  <b>respeitar os ambientes aquáticos e terrestres</b>. Por isso, eles atuam como <b class="destaque">guardiões</b> de áreas de
+  conservação do Brasil.</p>
+  <div class="curiosidade">🦦 <b>Fotos do livro:</b> uma mulher <b>quilombola</b> faz um vaso de <b>capim-dourado</b> em Mateiros
+  (TO) — se a vegetação é eliminada, essas comunidades <b>perdem parte do seu sustento</b>. E adolescentes do povo indígena
+  <b>Sateré-Mawé</b> pescam de canoa na aldeia Inhaã-Bé, em Manaus (AM).</div>
+  <div class="caixa-chave">
+    <h4>💙 Preservação ambiental e cultural</h4>
+    <ul>
+      <li>A água de <b>rios, lagos, lagoas e do mar</b> é vital para as práticas <b>culturais, econômicas, de subsistência e de lazer</b> desses povos.</li>
+      <li>Muitos grupos dependem dos cursos de água para a <b>pesca, a agricultura e o transporte</b>.</li>
+      <li>A água aparece nas <b>histórias e nos rituais</b> e representa uma conexão com a <b>Terra e os ancestrais</b>.</li>
+      <li>Família <b>ribeirinha</b> na Ilha de Marajó (PA): os rios são fonte de alimento e vias de transporte.</li>
+    </ul>
+  </div>
+  <div class="curiosidade">🦦 <b>Conheça as marisqueiras:</b> as <b>marisqueiras de Travosa, no Maranhão</b>, vivem do
+  <b>extrativismo</b>: coletam animais que vivem nos <b>mangues</b>, o que garante alimento e renda. A <b>poluição dos manguezais</b>
+  pode reduzir esse recurso e colocar em risco a vida e a cultura dessas famílias.</div>`,
+  qs:[
+    {q:"Por que os povos indígenas e as comunidades tradicionais são chamados de guardiões da natureza?",
+     a:["Porque têm técnicas de cuidado do solo, da vegetação e da água para viver em harmonia com o ambiente","Porque moram só nas grandes cidades","Porque trabalham em indústrias","Porque não usam os rios"], c:0,
+     fb:["Isso! É o que diz a síntese da unidade.",
+         "Não. Eles são guardiões por causa das suas <b>técnicas de cuidado</b> da natureza.",
+         "Não é isso. O motivo são os <b>conhecimentos de cuidado</b> com o solo, a vegetação e a água.",
+         "É o contrário: eles <b>dependem</b> muito dos rios."]},
+    {q:"As marisqueiras de Travosa, no Maranhão, tiram o seu sustento de onde?",
+     a:["Da coleta de animais que vivem nos mangues","Do capim-dourado do Tocantins","Da mineração ilegal","Das usinas hidrelétricas"], c:0,
+     fb:["Exato! Esse extrativismo nos mangues garante alimento e renda.",
+         "Pegadinha! O capim-dourado é das comunidades quilombolas de <b>Mateiros (TO)</b>. As marisqueiras coletam nos <b>mangues</b>.",
+         "Não! A mineração ilegal polui os rios. Elas vivem do <b>extrativismo nos mangues</b>.",
+         "Não. Elas coletam animais dos <b>mangues</b>."]},
+    {q:"Qual destes NÃO é um exemplo de comunidade tradicional citado pelo livro?",
+     a:["Operários de uma fábrica na cidade","Quilombolas","Ribeirinhos","Caiçaras"], c:0,
+     fb:["Isso! Os exemplos do livro são quilombolas, ribeirinhos, caiçaras e seringueiros.",
+         "Quilombolas <b>são</b> citados pelo livro.",
+         "Ribeirinhos <b>são</b> citados pelo livro.",
+         "Caiçaras <b>são</b> citados pelo livro."]}
+  ]
+},
+/* ---------------- LÁPIS 8 ---------------- */
+{
+  n:"Lápis 8", nome:"Toda atividade deixa marcas: a agroindústria", pag:"páginas 88 e 89", cor:"#E9B949",
+  texto:`
+  <p>Começa a <b>Unidade 12</b>! O <b class="destaque">amarelo-trigo</b> pinta a plantação. Antes, uma ideia importante: para
+  diminuir o impacto no ambiente é preciso combater o <b>consumismo</b>, porque tudo o que usamos é produzido com
+  <b>recursos naturais e matérias-primas</b>.</p>
+  <p><b class="destaque">Na cidade ou no campo, as atividades econômicas resultam em algum tipo de impacto ambiental.</b></p>
+  <div class="caixa-chave">
+    <h4>🔗 As três fotos que o livro manda relacionar</h4>
+    <ul>
+      <li>🚗 Fumaça saindo do <b>escapamento</b> de um veículo → <b>poluição do ar</b>.</li>
+      <li>🧑‍🌾 Trabalhador <b>pulverizando defensivo agrícola</b> na plantação → <b>poluição do solo</b>.</li>
+      <li>🚰 <b>Esgoto</b> saindo de uma galeria e caindo na água → <b>poluição da água</b>.</li>
+    </ul>
+  </div>
+  <p>A <b class="destaque">agroindústria</b> é o setor da economia que junta a <b>produção agrícola</b> e o
+  <b>processamento industrial de alimentos</b>. A matéria-prima agropecuária — como <b>algodão, café, carne e leite</b> — é
+  transformada em novos produtos em indústrias localizadas <b>na própria área rural</b>.</p>
+  <p>Quando a agroindústria trabalha <b>sem os devidos cuidados</b>, pode causar: <b>poluição da água e do solo</b>,
+  <b>desmatamento</b> e <b>destino inadequado dos resíduos</b> gerados.</p>
+  <div class="curiosidade">🦦 <b>Texto da Embrapa no livro:</b> a agroindústria produz materiais diversos, <b>insumos</b> químicos
+  para a agricultura, energia, alimentos e rações para animais. E gera resíduos nos estados <b>líquido, sólido e gasoso</b>.</div>
+  <div class="caixa-chave">
+    <h4>📖 Palavra do livro: INSUMO</h4>
+    <p style="margin:4px 0">Todo e qualquer material utilizado na fabricação de um produto, como <b>matéria-prima, equipamentos, energia e água</b>.</p>
+  </div>`,
+  qs:[
+    {q:"O que é a agroindústria?",
+     a:["O setor que junta a produção agrícola e o processamento industrial de alimentos, com indústrias na própria área rural","Uma fábrica de carros no centro da cidade","Um parque de energia eólica","Uma usina hidrelétrica"], c:0,
+     fb:["Isso! Produção agrícola + indústria de alimentos, na própria área rural.",
+         "Não. A agroindústria transforma produtos do campo (algodão, café, carne, leite) <b>na área rural</b>.",
+         "Parque eólico produz energia com o vento. A agroindústria transforma <b>produtos agropecuários</b>.",
+         "Hidrelétrica produz energia com a água. A agroindústria transforma <b>produtos agropecuários</b>."]},
+    {q:"Na foto do livro, um trabalhador pulveriza defensivo agrícola nas plantas. Com qual tipo de poluição o livro relaciona essa foto?",
+     a:["Poluição do solo","Poluição do ar","Poluição sonora","Nenhuma poluição"], c:0,
+     fb:["Isso! No exercício do livro, a pulverização de defensivo combina com a <b>poluição do solo</b>.",
+         "Pegadinha! Quem combina com a poluição do ar é a foto do <b>escapamento</b>. A pulverização vai para a <b>poluição do solo</b>.",
+         "O livro não fala de poluição sonora. A resposta é <b>poluição do solo</b>.",
+         "O uso de defensivos <b>polui</b>: o livro relaciona à <b>poluição do solo</b>."]},
+    {q:"O que é um insumo?",
+     a:["Todo material usado na fabricação de um produto, como matéria-prima, equipamentos, energia e água","Só o lixo que sobra da fábrica","Um tipo de rio","Uma doença respiratória"], c:0,
+     fb:["Exato! É a definição do boxe do livro.",
+         "Lixo é <b>resíduo</b>. Insumo é o que <b>entra</b> na fabricação.",
+         "Não. Insumo é material usado para <b>fabricar</b> um produto.",
+         "Doenças respiratórias são asma e bronquite. Insumo é material de <b>fabricação</b>."]}
+  ]
+},
+/* ---------------- LÁPIS 9 ---------------- */
+{
+  n:"Lápis 9", nome:"A água na agroindústria", pag:"páginas 90 e 92", cor:"#D94F3D",
+  texto:`
+  <p>O <b class="destaque">vermelho do celeiro</b> pinta a fazenda. Numa fazenda com agroindústria se usa muita, muita água!</p>
+  <p>A <b>agricultura e a indústria</b> estão entre as atividades econômicas que <b class="destaque">mais consomem água no mundo</b>.
+  Quando as duas se juntam na agroindústria, usa-se uma <b>grande quantidade de água</b>, o que pode causar
+  <b>desperdício e contaminação</b> desse recurso natural.</p>
+  <div class="caixa-chave">
+    <h4>💧 Para que a agroindústria usa tanta água?</h4>
+    <ul>
+      <li>🧼 Para <b>lavar produtos</b>;</li>
+      <li>⚙️ para <b>resfriar máquinas</b>;</li>
+      <li>🍞 e para <b>produzir alimentos</b>, por exemplo.</li>
+    </ul>
+  </div>
+  <p>E atenção: o <b>uso excessivo de defensivos agrícolas</b> pode contaminar o <b>solo e a água</b> e causar danos à
+  <b>saúde humana e ao ambiente</b>.</p>
+  <p>Quando as atividades econômicas usam técnicas que <b>provocam menos impactos na natureza</b> e <b>respeitam o modo de vida
+  das populações locais</b>, o desenvolvimento econômico e social pode ser considerado <b class="destaque">sustentável</b>.</p>
+  <div class="curiosidade">🦦 <b>Ampliando:</b> os impactos da agroindústria podem ser reduzidos com <b>técnicas sustentáveis</b>.
+  O livro cita a <b>agricultura sustentável</b>, a <b>agroecologia</b> e a <b>produção orgânica</b> como boas práticas em que o
+  Brasil já é referência. E lembra: a <b>mineração, a geração de energia e a indústria</b> também consomem muita água.</div>`,
+  qs:[
+    {q:"Quais atividades estão entre as que MAIS consomem água no mundo?",
+     a:["A agricultura e a indústria","A aviação e o turismo","A natação e a canoagem","A observação da vida selvagem"], c:0,
+     fb:["Isso! Agricultura e indústria — e juntas, na agroindústria, gastam muita água.",
+         "Não. O livro aponta a <b>agricultura e a indústria</b>.",
+         "Essas são formas de lazer nos rios. Quem mais gasta água: <b>agricultura e indústria</b>.",
+         "Não. Quem mais gasta água: <b>agricultura e indústria</b>."]},
+    {q:"Na agroindústria, a água é usada para quê?",
+     a:["Lavar produtos, resfriar máquinas e produzir alimentos","Apenas para as pessoas beberem","Para apagar as queimadas","A agroindústria não usa água"], c:0,
+     fb:["Exato! São os exemplos do livro.",
+         "Não é só para beber: lavar produtos, resfriar máquinas e produzir alimentos.",
+         "Não é isso. O livro cita lavar produtos, <b>resfriar máquinas</b> e produzir alimentos.",
+         "Usa, e muita! Para lavar produtos, resfriar máquinas e produzir alimentos."]},
+    {q:"Quando uma atividade econômica provoca menos impactos na natureza e respeita o modo de vida das populações locais, o desenvolvimento é chamado de:",
+     a:["Sustentável","Ilegal","Poluente","Consumista"], c:0,
+     fb:["Isso! Essa é a ideia de desenvolvimento <b>sustentável</b>.",
+         "Ilegal é o que vai contra a lei. Aqui a resposta é <b>sustentável</b>.",
+         "É o contrário: menos impacto = <b>sustentável</b>.",
+         "Consumismo aumenta os impactos. A resposta é <b>sustentável</b>."]}
+  ]
+},
+/* ---------------- LÁPIS 10 ---------------- */
+{
+  n:"Lápis 10", nome:"Cuidando do solo", pag:"página 91", cor:"#A0693A",
+  texto:`
+  <p>O <b class="destaque">marrom da terra</b> pinta o morro. As atividades econômicas — <b>agricultura, pecuária, extrativismo,
+  indústria e serviços</b> — são fundamentais para o desenvolvimento do Brasil, para a <b>geração de empregos</b> e para a
+  <b>qualidade de vida</b>. Elas fornecem tudo o que usamos no dia a dia. Por isso devem ser praticadas de forma
+  <b class="destaque">ambientalmente correta</b>.</p>
+  <p>O <b>ser humano também faz parte do ambiente</b>. Cabe a ele cuidar do planeta para que as pessoas de hoje e do futuro
+  tenham <b>alimentos de qualidade, rios limpos, solo fértil, florestas em pé, ar puro, plantas e animais saudáveis</b>.</p>
+  <div class="caixa-chave">
+    <h4>🟫 O que degrada (estraga) o solo — as 4 fotos do livro</h4>
+    <ul>
+      <li>🔥 <b>Desmatamento, queimadas, não rotatividade das culturas</b> e <b>uso exagerado de defensivos agrícolas</b> (erosão em Manoel Viana, RS).</li>
+      <li>🐄 <b>Compactação pelo pisoteio dos rebanhos</b>, que deixa o solo <b>endurecido e impróprio ao cultivo</b> (Pinhal Grande, RS).</li>
+      <li>⛏️ <b>Mineração:</b> erosão, desmatamento e contaminação por produtos químicos (mineração ilegal em Poconé, MT).</li>
+      <li>🛢️ <b>Indústria:</b> substâncias que não são tratadas corretamente antes de voltar ao ambiente (vazamento de <b>petróleo</b> na praia de Pituba, em Salvador, BA).</li>
+    </ul>
+  </div>
+  <div class="curiosidade">🦦 <b>Frase da síntese:</b> desmatamentos, queimadas, uso de produtos químicos, erosão e despejo de
+  esgoto sem tratamento são problemas que afetam o solo.</div>`,
+  qs:[
+    {q:"Um rebanho de gado pisa o mesmo pasto todos os dias. O que pode acontecer com o solo?",
+     a:["Ele fica compactado: endurecido e impróprio para o cultivo","Ele fica mais fofo e fértil","Ele vira um banco de areia no rio","Nada acontece com o solo"], c:0,
+     fb:["Isso! É a compactação pelo pisoteio dos rebanhos.",
+         "É o contrário: o pisoteio <b>endurece</b> o solo.",
+         "Banco de areia se forma no <b>leito do rio</b>. O pisoteio causa <b>compactação</b>.",
+         "Acontece, sim: o solo fica <b>compactado</b>."]},
+    {q:"Qual destas NÃO é uma causa de degradação do solo citada no livro?",
+     a:["Fazer a compostagem de resíduos orgânicos","Desmatamento e queimadas","Uso exagerado de defensivos agrícolas","Não fazer a rotatividade das culturas"], c:0,
+     fb:["Isso! A compostagem é uma <b>boa medida</b>, que ajuda a proteger a água.",
+         "Desmatamento e queimadas <b>degradam</b> o solo.",
+         "O uso exagerado de defensivos <b>degrada</b> o solo.",
+         "A não rotatividade das culturas <b>degrada</b> o solo."]},
+    {q:"O vazamento de petróleo na praia de Pituba, em Salvador, é exemplo de degradação do solo causada por qual atividade?",
+     a:["Indústria (substâncias que não foram tratadas corretamente)","Pecuária (pisoteio dos rebanhos)","Turismo de canoagem","Energia eólica"], c:0,
+     fb:["Exato! Substâncias usadas nas indústrias comprometem o solo quando não são tratadas corretamente.",
+         "O pisoteio é outra foto (Pinhal Grande, RS). O petróleo é da <b>indústria</b>.",
+         "Não. É uma substância da <b>indústria</b>.",
+         "Não. É uma substância da <b>indústria</b>."]}
+  ]
+},
+/* ---------------- LÁPIS 11 ---------------- */
+{
+  n:"Lápis 11", nome:"Como proteger a água", pag:"páginas 92 a 95", cor:"#1FB5C9",
+  texto:`
+  <p>O <b class="destaque">azul-piscina</b> pinta as gotinhas da irrigação. Veja as medidas que o livro ensina para reduzir os
+  impactos das atividades humanas sobre os <b>corpos de água</b>:</p>
+  <div class="caixa-chave">
+    <h4>🚰 Medidas que protegem a água</h4>
+    <ul>
+      <li>💧 Usar técnicas de irrigação mais eficientes, como o <b class="destaque">gotejamento</b>.</li>
+      <li>♻️ Fazer a <b>compostagem de resíduos orgânicos</b>, a <b>reciclagem de embalagens</b> e o <b>encaminhamento adequado dos resíduos tóxicos</b>.</li>
+      <li>🏭 <b>Tratar o esgoto</b> e a água utilizada em indústrias.</li>
+      <li>🔧 <b>Identificar vazamentos e controlá-los</b> para não desperdiçar água.</li>
+    </ul>
+  </div>
+  <p>Um <b>bom uso</b> da água: o <b class="destaque">reúso em residências e indústrias</b>. Um mau uso: o despejo de resíduos em rios e lagos.</p>
+  <div class="caixa-chave">
+    <h4>🔢 Números para decorar</h4>
+    <ul>
+      <li>♻️ O Brasil é <b>referência mundial</b> em reciclagem de embalagens de defensivos agrícolas: <b>94%</b> das embalagens colocadas no mercado são recicladas.</li>
+      <li>De cada <b>100 litros</b> de água disponíveis no Brasil: <b>agropecuária = 70 litros</b> · <b>indústrias = 22 litros</b> · <b>uso doméstico = 8 litros</b>.</li>
+    </ul>
+  </div>
+  <div class="curiosidade">🦦 <b>Você é o geógrafo — os alfinetes:</b> antigamente, <b>alfinetes</b> marcavam pontos importantes nos mapas
+  de papel; hoje eles aparecem nos mapas digitais para indicar <b>pontos de interesse</b>. No mapa
+  <b>"Rio Tietê: monitoramento da qualidade da água (2022)"</b>, cada alfinete é um <b>ponto de monitoramento</b>, onde a água foi
+  coletada para ser examinada. A <b>pior qualidade</b> (péssima, em vermelho) foi encontrada onde há <b>maior concentração de cidades e
+  indústrias</b> — perto de Santana de Parnaíba, depois da cidade de São Paulo. Perto de Salesópolis os alfinetes são verdes (água boa).</div>`,
+  qs:[
+    {q:"Qual destas é uma técnica de irrigação mais eficiente, que ajuda a economizar água?",
+     a:["O gotejamento","Deixar a mangueira aberta o dia inteiro","Despejar resíduos no rio","Pulverizar mais defensivo"], c:0,
+     fb:["Isso! O gotejamento é a técnica citada pelo livro.",
+         "Isso é <b>desperdício</b>!",
+         "Isso <b>polui</b> a água.",
+         "Defensivo em excesso <b>contamina</b> o solo e a água."]},
+    {q:"De cada 100 litros de água disponíveis no Brasil, quantos litros a agropecuária consome?",
+     a:["70 litros","22 litros","8 litros","94 litros"], c:0,
+     fb:["Isso! A agropecuária é a que mais consome: 70 de cada 100 litros.",
+         "22 litros é o consumo das <b>indústrias</b>.",
+         "8 litros é o <b>uso doméstico</b> (nas casas).",
+         "94 é a <b>porcentagem de embalagens recicladas</b>, não litros de água!"]},
+    {q:"No mapa do rio Tietê, cada alfinete mostra um ponto onde a água foi coletada para exame. Onde a qualidade da água foi a pior?",
+     a:["Onde há maior concentração de cidades e indústrias","Onde não há nenhuma cidade","Perto de Salesópolis, onde os alfinetes são verdes","Em todos os pontos, igualzinho"], c:0,
+     fb:["Exato! É a conclusão do próprio livro.",
+         "É o contrário: a pior água está onde há <b>mais</b> cidades e indústrias.",
+         "Verde significa água <b>boa</b>. A pior (vermelha) fica onde há mais cidades e indústrias.",
+         "Não: o mapa mostra cores diferentes. A pior é onde há <b>mais cidades e indústrias</b>."]}
+  ]
+},
+/* ---------------- REVISÃO ---------------- */
+{
+  n:"Lápis Arco-Íris", nome:"Revisão geral — misturando tudo", pag:"Unidades 11 e 12", cor:"#8E6CD9",
+  texto:`
+  <p>Último lápis! O <b class="destaque">arco-íris</b> só aparece no desenho quando você mostra que sabe misturar todas as cores.
+  Estas perguntas juntam assuntos das <b>duas unidades</b>. Respire fundo e capriche! 🌈</p>
+  <div class="caixa-chave">
+    <h4>🎨 Lembrete rápido</h4>
+    <ul>
+      <li><b>Rios:</b> água, alimento, transporte, turismo, energia (hidrelétrica).</li>
+      <li><b>Ar:</b> chuvas, temperatura, poluentes, aviação, energia eólica.</li>
+      <li><b>Problemas:</b> esgoto sem tratamento, mineração ilegal, bancos de areia, indústrias, veículos, queimadas.</li>
+      <li><b>Guardiões:</b> povos indígenas e comunidades tradicionais.</li>
+      <li><b>Unidade 12:</b> agroindústria, consumo de água, degradação do solo e medidas de proteção da água.</li>
+    </ul>
+  </div>`,
+  qs:[
+    {q:"Qual é a diferença entre uma usina hidrelétrica e um parque eólico?",
+     a:["A hidrelétrica usa a força da água; o parque eólico usa o vento","Os dois usam o vento","Os dois usam a força da água","A hidrelétrica usa o Sol e o parque eólico usa a água"], c:0,
+     fb:["Isso! Água em movimento × ar em movimento.",
+         "Só o parque <b>eólico</b> usa o vento.",
+         "Só a <b>hidrelétrica</b> usa a força da água.",
+         "Trocou tudo! Hidrelétrica = água; eólico = vento."]},
+    {q:"Escapamento de veículo, pulverização de defensivo agrícola e esgoto saindo da galeria. Na ordem, que tipos de poluição o livro relaciona a essas fotos?",
+     a:["ar · solo · água","água · ar · solo","solo · água · ar","ar · água · solo"], c:0,
+     fb:["Perfeito! Escapamento = ar; defensivo = solo; esgoto = água.",
+         "O escapamento solta fumaça no <b>ar</b>.",
+         "O escapamento é poluição do <b>ar</b>.",
+         "Quase! O defensivo vai para o <b>solo</b> e o esgoto para a <b>água</b>."]},
+    {q:"Qual frase está VERDADEIRA?",
+     a:["Uma forma de conservar os rios é manter uma larga faixa de vegetação nas margens","Uma forma de conservar os rios é retirar a vegetação das margens","Os bancos de areia indicam que o rio está saudável","Quase todo o esgoto do Brasil é tratado"], c:0,
+     fb:["Isso! A vegetação segura o solo e protege a água.",
+         "Retirar a vegetação <b>causa</b> erosão e bancos de areia.",
+         "Bancos de areia são sinal de <b>problema</b>.",
+         "<b>Menos da metade</b> do esgoto é tratado."]},
+    {q:"Quais são os principais problemas ambientais provocados pela agroindústria?",
+     a:["Poluição da água e do solo, desmatamento e destino inadequado dos resíduos","Só o barulho das máquinas","Enchentes causadas pelo vento","Falta de turistas nos rios"], c:0,
+     fb:["Exato! É a frase da síntese da Unidade 12.",
+         "O livro não fala de barulho. Os problemas são poluição da água e do solo, desmatamento e resíduos.",
+         "Não. Os problemas são poluição da água e do solo, desmatamento e resíduos.",
+         "Não. Os problemas são poluição da água e do solo, desmatamento e resíduos."]},
+    {q:"Segundo o livro, qual atividade consome MENOS água no Brasil?",
+     a:["Uso doméstico (8 litros de cada 100)","Agropecuária (70 litros de cada 100)","Indústrias (22 litros de cada 100)","As três consomem igual"], c:0,
+     fb:["Isso! Nas casas são cerca de 8 litros de cada 100.",
+         "A agropecuária é a que <b>mais</b> consome.",
+         "As indústrias ficam no meio: 22 litros.",
+         "Não: 70, 22 e 8 são bem diferentes."]},
+    {q:"O que a fumaça de uma queimada e a água com esgoto têm em comum?",
+     a:["As duas viajam: a poluição se desloca e atinge pessoas longe de onde começou","As duas ficam paradas no mesmo lugar","As duas deixam o ambiente mais saudável","Nenhuma delas afeta as pessoas"], c:0,
+     fb:["Isso! A água e o ar se deslocam, e a poluição vai junto.",
+         "Não ficam: o ar e a água <b>se deslocam</b>.",
+         "As duas <b>poluem</b>.",
+         "Afetam, sim: a fumaça e a água contaminada prejudicam muitas pessoas."]}
+  ]
+}
+];
+
+/* pegadinhas e cobertura (aparecem no fim da Leitura Guiada) */
+var LEITURA_PEGADINHAS = [
+ "Itaipu é a <b>SEGUNDA</b> maior hidrelétrica do mundo. A primeira é <b>Três Gargantas</b>, na China.",
+ "Hidrelétrica = força da <b>água</b>. Eólica = força do <b>vento</b> (ar).",
+ "Banco de areia <b>NÃO</b> é sinal de rio saudável: atrapalha o fluxo, a navegação e aumenta as enchentes.",
+ "Para conservar o rio é preciso <b>MANTER</b> a vegetação da margem — não retirar.",
+ "Segundo o SNIS, <b>menos da metade</b> do esgoto do Brasil é tratado.",
+ "Pulverizar defensivo agrícola: no exercício do livro combina com <b>poluição do SOLO</b> (o escapamento é que é poluição do ar).",
+ "Na agroindústria as indústrias ficam <b>na própria área rural</b>, não na cidade.",
+ "Quem mais gasta água no Brasil é a <b>agropecuária (70 de 100 litros)</b>; as casas gastam só <b>8</b>.",
+ "<b>94%</b> é a porcentagem de embalagens de defensivos recicladas — não é número de litros.",
+ "Compostagem e gotejamento são <b>soluções</b>; desmatamento, queimadas e defensivos em excesso são <b>problemas</b>."
+];
+var LEITURA_COBERTURA = [
+ ["Importância dos rios e Itaipu (p. 74-75)","Lápis 1"],
+ ["Importância do ar e energia eólica (p. 75)","Lápis 2"],
+ ["Condições dos rios, esgoto, mineração ilegal (p. 76-77)","Lápis 3"],
+ ["Bancos de areia, erosão e vegetação das margens (p. 76-77)","Lápis 4"],
+ ["Condições do ar no Brasil (p. 78)","Lápis 5"],
+ ["Como melhorar o ar e a poluição que viaja (p. 79-80)","Lápis 6"],
+ ["Povos indígenas, comunidades tradicionais, marisqueiras (p. 81-82)","Lápis 7"],
+ ["Mãos à obra e O que eu aprendi da Un. 11 (p. 83-85)","Lápis 1 a 7 + Revisão"],
+ ["Atividades e impactos, agroindústria, insumo (p. 88-89)","Lápis 8"],
+ ["Água na agroindústria e desenvolvimento sustentável (p. 90 e 92)","Lápis 9"],
+ ["Atividades econômicas e preservação do solo (p. 91)","Lápis 10"],
+ ["Medidas para proteger a água, mapa do Tietê, 94%, 70/22/8 (p. 92-95)","Lápis 11"],
+ ["O que eu aprendi da Un. 12 (p. 96)","Lápis 8 a 11 + Revisão"]
+];
+/* ============== MAPA MENTAL PARA ENCAIXAR (12 lacunas) ============== */
+var MAPA = [
+ {cor:"#2B8FD6", titulo:"🏞️ Lápis 1 · Para que servem os rios",
+  itens:[
+    {t:"fixo", txt:"água para beber, lavar, irrigar e para a indústria"},
+    {t:"fixo", txt:"alimento · transporte · recreação e turismo"},
+    {t:"lacuna", id:"L1", dica:"usina que transforma a força das águas em eletricidade", certa:"hidrelétrica", outra:"parque eólico"},
+    {t:"fixo", txt:"Itaipu: rio Paraná, 2ª maior do mundo"}
+  ]},
+ {cor:"#4AA8DE", titulo:"🌬️ Lápis 2 · Para que serve o ar",
+  itens:[
+    {t:"lacuna", id:"L2", dica:"ar em movimento que leva as nuvens e espalha as chuvas", certa:"ventos", outra:"sedimentos"},
+    {t:"fixo", txt:"ameniza o calor · transporta poluentes"},
+    {t:"fixo", txt:"suporte à aviação · energia eólica"}
+  ]},
+ {cor:"#F28C28", titulo:"🐟 Lápis 3 · Rios limpos e poluídos",
+  itens:[
+    {t:"lacuna", id:"L3", dica:"quanto do esgoto do Brasil é tratado (SNIS)", certa:"menos da metade", outra:"94%"},
+    {t:"fixo", txt:"poluentes domésticos, agrícolas e industriais"},
+    {t:"lacuna", id:"L4", dica:"produto tóxico da mineração ilegal", certa:"mercúrio", outra:"insumo"}
+  ]},
+ {cor:"#3FA34D", titulo:"🌳 Lápis 4 · Margens e erosão",
+  itens:[
+    {t:"fixo", txt:"tiram a vegetação → erosão → a chuva leva terra"},
+    {t:"lacuna", id:"L5", dica:"terra e areia acumuladas no leito do rio", certa:"bancos de areia", outra:"áreas verdes"},
+    {t:"fixo", txt:"atrapalham a navegação e aumentam as enchentes"},
+    {t:"fixo", txt:"solução: larga faixa de vegetação nas margens"}
+  ]},
+ {cor:"#2E7D32", titulo:"😷 Lápis 5 · O ar no Brasil",
+  itens:[
+    {t:"fixo", txt:"SP, RJ e BH: muitas indústrias e veículos"},
+    {t:"lacuna", id:"L6", dica:"problemas respiratórios causados pelo ar poluído", certa:"asma e bronquite", outra:"compactação"},
+    {t:"fixo", txt:"a floresta absorve poluentes do ar"}
+  ]},
+ {cor:"#E0A800", titulo:"☀️ Lápis 6 · Ar mais limpo",
+  itens:[
+    {t:"lacuna", id:"L7", dica:"as energias limpas citadas pelo livro", certa:"eólica e solar", outra:"poeira e fuligem"},
+    {t:"fixo", txt:"cidade: praças, parques e jardins"},
+    {t:"fixo", txt:"campo: sem queimadas, vegetação nativa preservada"},
+    {t:"fixo", txt:"a poluição viaja com o ar e a água"}
+  ]},
+ {cor:"#C0392B", titulo:"🛶 Lápis 7 · Guardiões da natureza",
+  itens:[
+    {t:"fixo", txt:"quilombolas, ribeirinhos, caiçaras, seringueiros"},
+    {t:"lacuna", id:"L8", dica:"o que esses povos são para as áreas de conservação", certa:"guardiões", outra:"consumistas"},
+    {t:"fixo", txt:"marisqueiras de Travosa (MA): animais dos mangues"}
+  ]},
+ {cor:"#C99A1E", titulo:"🌾 Lápis 8 · Agroindústria",
+  itens:[
+    {t:"fixo", txt:"produção agrícola + indústria na área rural"},
+    {t:"fixo", txt:"algodão, café, carne, leite"},
+    {t:"lacuna", id:"L9", dica:"material usado na fabricação (matéria-prima, equipamentos, energia e água)", certa:"insumo", outra:"mercúrio"},
+    {t:"fixo", txt:"problemas: poluição, desmatamento, resíduos"}
+  ]},
+ {cor:"#D94F3D", titulo:"💧 Lápis 9 · Água na agroindústria",
+  itens:[
+    {t:"fixo", txt:"agricultura e indústria: as que mais gastam água"},
+    {t:"fixo", txt:"lavar produtos, resfriar máquinas, produzir alimentos"},
+    {t:"lacuna", id:"L10", dica:"desenvolvimento com menos impacto e respeito às populações locais", certa:"sustentável", outra:"ventos"}
+  ]},
+ {cor:"#A0693A", titulo:"🟫 Lápis 10 · Cuidando do solo",
+  itens:[
+    {t:"fixo", txt:"desmatamento · queimadas · defensivos em excesso"},
+    {t:"lacuna", id:"L11", dica:"o que o pisoteio dos rebanhos faz com o solo", certa:"compactação", outra:"asma e bronquite"},
+    {t:"fixo", txt:"mineração · petróleo da indústria"}
+  ]},
+ {cor:"#1FB5C9", titulo:"🚰 Lápis 11 · Proteger a água",
+  itens:[
+    {t:"lacuna", id:"L12", dica:"técnica de irrigação mais eficiente", certa:"gotejamento", outra:"bancos de areia"},
+    {t:"fixo", txt:"compostagem · reciclagem · tratar esgoto · consertar vazamentos"},
+    {t:"fixo", txt:"94% das embalagens de defensivos recicladas"},
+    {t:"fixo", txt:"de 100 litros: agro 70 · indústria 22 · casas 8"}
+  ]}
+];
+
+/* ============== VERDADEIRO OU FALSO (banco de 26; sorteia 12) ============== */
+var VF = [
+ {f:"Os rios são usados para o transporte de mercadorias e de pessoas.", v:true,
+  e:"Verdade! Transporte é um dos usos dos rios citados na página 74."},
+ {f:"A usina de Itaipu é a maior hidrelétrica do mundo.", v:false,
+  e:"Falso. Itaipu é a SEGUNDA maior. A primeira é a usina Três Gargantas, na China."},
+ {f:"Os ventos deslocam as nuvens e ajudam a distribuir as chuvas.", v:true,
+  e:"Verdade! É a 'distribuição das chuvas', uma das importâncias do ar."},
+ {f:"A energia eólica é produzida pela força das águas dos rios.", v:false,
+  e:"Falso. A energia eólica vem do AR (vento). A força das águas é usada nas hidrelétricas."},
+ {f:"Menos da metade do esgoto gerado no Brasil é tratado.", v:true,
+  e:"Verdade! É o dado do SNIS que aparece na página 76."},
+ {f:"Os bancos de areia indicam que o rio está saudável.", v:false,
+  e:"Falso. Eles atrapalham o fluxo das águas e a navegação e aumentam as enchentes."},
+ {f:"Os bancos de areia se formam pelo acúmulo de terra, areia e outros materiais sólidos no leito do rio.", v:true,
+  e:"Verdade! A chuva leva os materiais para o rio e eles se depositam no leito."},
+ {f:"Uma forma de conservar os rios é retirar a vegetação das margens.", v:false,
+  e:"Falso. É o contrário: é preciso MANTER uma larga faixa de vegetação nas margens."},
+ {f:"A vegetação funciona como uma barreira que protege a água do rio contra os materiais sólidos que deslizam com a chuva.", v:true,
+  e:"Verdade! E as raízes ainda ajudam a conter a erosão."},
+ {f:"O mercúrio usado na mineração ilegal pode contaminar a água dos rios.", v:true,
+  e:"Verdade! Ele contamina a água durante a extração e o tratamento do minério."},
+ {f:"São Paulo, Rio de Janeiro e Belo Horizonte têm sérios problemas de poluição do ar por causa da alta concentração de indústrias e veículos.", v:true,
+  e:"Verdade! É exatamente o motivo dado pelo livro."},
+ {f:"Respirar ar poluído não faz mal à saúde.", v:false,
+  e:"Falso. Pode causar problemas respiratórios, como asma e bronquite."},
+ {f:"Florestas como a Floresta Amazônica absorvem os poluentes do ar.", v:true,
+  e:"Verdade! Por isso o desmatamento e as queimadas são uma ameaça."},
+ {f:"Para melhorar o ar das cidades, é preciso diminuir as praças, os parques e os jardins.", v:false,
+  e:"Falso. É preciso CRIAR e EXPANDIR áreas verdes, como praças, parques e jardins."},
+ {f:"A fumaça de uma queimada pode atingir populações muito distantes do lugar onde ela começou.", v:true,
+  e:"Verdade! O ar se desloca e a poluição viaja junto."},
+ {f:"Quilombolas, ribeirinhos, caiçaras e seringueiros são exemplos de comunidades tradicionais.", v:true,
+  e:"Verdade! São os exemplos citados na página 81."},
+ {f:"Os povos indígenas e as comunidades tradicionais não dependem dos rios.", v:false,
+  e:"Falso. Eles dependem dos cursos de água para a pesca, a agricultura e o transporte, e a água está nas suas histórias e rituais."},
+ {f:"Na cidade ou no campo, as atividades econômicas resultam em algum tipo de impacto ambiental.", v:true,
+  e:"Verdade! É a frase que abre a Unidade 12."},
+ {f:"Na agroindústria, as indústrias ficam sempre nas grandes cidades, longe do campo.", v:false,
+  e:"Falso. As indústrias da agroindústria ficam na própria área rural."},
+ {f:"Insumo é todo material usado na fabricação de um produto, como matéria-prima, equipamentos, energia e água.", v:true,
+  e:"Verdade! É a definição do boxe da página 89."},
+ {f:"A agricultura e a indústria estão entre as atividades que mais consomem água no mundo.", v:true,
+  e:"Verdade! E, juntas na agroindústria, podem causar desperdício e contaminação."},
+ {f:"O pisoteio dos rebanhos deixa o solo mais fofo e bom para plantar.", v:false,
+  e:"Falso. O pisoteio compacta o solo: ele fica endurecido e impróprio ao cultivo."},
+ {f:"O gotejamento é uma técnica de irrigação mais eficiente.", v:true,
+  e:"Verdade! É uma das medidas que reduzem os impactos sobre a água."},
+ {f:"No Brasil, o uso doméstico é o que mais consome água.", v:false,
+  e:"Falso. A agropecuária consome 70 litros de cada 100; o uso doméstico, só 8."},
+ {f:"O Brasil recicla 94% das embalagens de defensivos agrícolas colocadas no mercado.", v:true,
+  e:"Verdade! Por isso o país é referência mundial nessa reciclagem."},
+ {f:"Despejar resíduos em rios e lagos é um bom uso da água.", v:false,
+  e:"Falso. Um bom uso é o reúso da água em residências e indústrias."}
+];
+
+/* ============== RESUMO ============== */
+var RESUMO_TEMPO_TIT = "🏖️ Como nasce um banco de areia — passo a passo";
+var RESUMO_TEMPO = [
+ {t:"1. Margem com mata", d:"Com a vegetação na margem, as <b>raízes seguram o solo</b> e as plantas são uma <b>barreira</b> que protege a água."},
+ {t:"2. A vegetação é retirada", d:"Sem as plantas, o solo fica <b>desprotegido</b> e mais sujeito à <b>erosão</b>."},
+ {t:"3. Chove", d:"A água da chuva leva parte do solo e outros materiais sólidos, como <b>rochas e galhos de árvore</b>."},
+ {t:"4. Tudo vai para o leito", d:"Os materiais se depositam no <b>leito do rio</b> e formam os <b>bancos de areia</b>."},
+ {t:"5. Os problemas", d:"Os bancos de areia <b>interferem no fluxo das águas</b>, atrapalham a <b>navegação</b> e <b>aumentam as enchentes</b>."},
+ {t:"6. A solução", d:"Manter uma <b>larga faixa de vegetação</b> ao longo de toda a extensão do rio."}
+];
+
+var RESUMO_PALAVRAS = [
+ ["Usina hidrelétrica","Capta a <b>força das águas em movimento</b> e a transforma em eletricidade. Ex.: Itaipu, no rio Paraná."],
+ ["Energia eólica","Energia elétrica produzida com o <b>ar (vento)</b>. Ex.: parque eólico em Aracati (CE)."],
+ ["Ventos","<b>Ar em movimento</b>. Deslocam as nuvens (chuvas) e amenizam o calor."],
+ ["Erosão","Desgaste do <b>solo e das rochas</b> pela água e pelo vento, formando <b>sedimentos</b>."],
+ ["Sedimentos","Materiais desprendidos da superfície terrestre, levados e depositados nas partes mais baixas de um rio ou terreno."],
+ ["Bancos de areia","Acúmulo de terra, areia e materiais sólidos no <b>leito do rio</b>. Atrapalham a navegação e aumentam as enchentes."],
+ ["Mineração ilegal","Polui os rios com produtos tóxicos como o <b>mercúrio</b> e, com o desmatamento, aumenta a erosão."],
+ ["Áreas verdes","<b>Praças, parques e jardins</b>. Criar e expandir essas áreas ajuda a recuperar o ar das cidades."],
+ ["Comunidades tradicionais","Grupos como <b>quilombolas, ribeirinhos, caiçaras e seringueiros</b>. Com os povos indígenas, são guardiões da natureza."],
+ ["Extrativismo","Forma de sustento das <b>marisqueiras de Travosa (MA)</b>: coletar animais que vivem nos mangues."],
+ ["Agroindústria","Junta a <b>produção agrícola</b> e o <b>processamento industrial de alimentos</b>, com indústrias na própria área rural."],
+ ["Insumo","Todo material usado na fabricação de um produto: <b>matéria-prima, equipamentos, energia e água</b>."],
+ ["Desenvolvimento sustentável","Quando as atividades provocam <b>menos impactos</b> na natureza e <b>respeitam o modo de vida</b> das populações locais."],
+ ["Compactação do solo","Causada pelo <b>pisoteio dos rebanhos</b>: o solo fica endurecido e impróprio ao cultivo."],
+ ["Gotejamento","Técnica de <b>irrigação mais eficiente</b>, que ajuda a proteger a água."],
+ ["Reúso","Usar de novo a água em <b>residências e indústrias</b>: um bom uso da água."],
+ ["Ponto de monitoramento","Lugar marcado por um <b>alfinete</b> no mapa, onde a água do rio foi coletada para ser examinada."]
+];
+
+var RESUMO_DICAS = [
+ "🏞️ <b>4 usos dos rios (além da água):</b> alimentos · transporte · recreação e turismo · energia elétrica.",
+ "🌬️ <b>5 importâncias do ar:</b> chuvas · temperatura · transporte de poluentes · aviação · energia eólica.",
+ "⚡ <b>Itaipu:</b> rio Paraná, entre Brasil e Paraguai, <b>2ª</b> maior do mundo (1ª = Três Gargantas, China).",
+ "🚽 <b>SNIS:</b> menos da metade do esgoto do Brasil é tratado.",
+ "😷 <b>SP, RJ e BH:</b> muitas indústrias e veículos → ar poluído → asma e bronquite.",
+ "🌻 <b>Ar mais limpo:</b> menos poluentes de indústrias e veículos · energias eólica e solar · cidade: áreas verdes · campo: sem queimadas e vegetação nativa preservada.",
+ "🛶 <b>Guardiões da natureza:</b> povos indígenas e comunidades tradicionais (quilombolas, ribeirinhos, caiçaras, seringueiros).",
+ "🌾 <b>Agroindústria:</b> algodão, café, carne, leite → 4 problemas: poluição da <b>água</b>, do <b>solo</b>, <b>desmatamento</b> e <b>resíduos</b>.",
+ "🔢 <b>Números:</b> de 100 litros → agro <b>70</b> · indústria <b>22</b> · casas <b>8</b>. Embalagens de defensivos recicladas: <b>94%</b>.",
+ "🚰 <b>Proteger a água:</b> gotejamento · compostagem · reciclagem · resíduos tóxicos no lugar certo · tratar esgoto · consertar vazamentos · reúso."
+];
+
+var RESUMO_ALERTAS = [
+ "🚨 <b>Hidrelétrica × eólica:</b> hidrelétrica usa a <b>água</b>; eólica usa o <b>vento</b>.",
+ "🚨 <b>Itaipu é a SEGUNDA</b> maior hidrelétrica do mundo, não a primeira.",
+ "🚨 <b>Banco de areia NÃO é rio saudável.</b> E para conservar o rio é preciso <b>MANTER</b> a vegetação, não retirar.",
+ "🚨 <b>Defensivo pulverizado = poluição do SOLO</b> no exercício do livro. Quem é poluição do ar é o <b>escapamento</b>.",
+ "🚨 <b>Quem mais gasta água é a agropecuária (70)</b>, não as casas (8).",
+ "🚨 <b>94% não é litros!</b> É a porcentagem de embalagens de defensivos agrícolas recicladas.",
+ "🚨 <b>Reúso = bom uso.</b> Despejar resíduos em rios e lagos = mau uso."
+];
+
+var RESUMO_RELAMPAGO = [
+ ["Como a hidrelétrica produz energia?","Captando a <b>força das águas em movimento</b>."],
+ ["Onde fica Itaipu?","No <b>rio Paraná</b>, na fronteira entre o Brasil e o Paraguai."],
+ ["Qual é a maior hidrelétrica do mundo?","A usina <b>Três Gargantas</b>, na China."],
+ ["De onde vem a energia eólica?","Do <b>ar</b> (vento)."],
+ ["Quanto do esgoto do Brasil é tratado?","<b>Menos da metade</b> (dado do SNIS)."],
+ ["O que se forma quando a terra levada pela chuva se acumula no leito do rio?","Os <b>bancos de areia</b>."],
+ ["Que produto tóxico a mineração ilegal usa?","O <b>mercúrio</b>."],
+ ["Que doenças o ar poluído pode causar?","Problemas respiratórios, como <b>asma e bronquite</b>."],
+ ["Cite as duas energias limpas do livro.","<b>Eólica e solar</b>."],
+ ["Quem são os guardiões da natureza?","Os <b>povos indígenas e as comunidades tradicionais</b>."],
+ ["Do que vivem as marisqueiras de Travosa?","Do <b>extrativismo</b>: coletam animais dos <b>mangues</b>."],
+ ["O que é agroindústria?","Produção agrícola + processamento industrial de alimentos, <b>na área rural</b>."],
+ ["O que o pisoteio dos rebanhos causa no solo?","<b>Compactação</b>: solo endurecido e impróprio ao cultivo."],
+ ["Qual técnica de irrigação economiza água?","O <b>gotejamento</b>."],
+ ["Onde a água do Tietê estava pior?","Onde há <b>maior concentração de cidades e indústrias</b>."]
+];
+/* ============== SIMULADO — 25 questões ============== */
+/* A alternativa CERTA é escrita na posição 0 (c:0). Na tela as alternativas
+   são EMBARALHADAS por mulberry32 e a correta é guardada pelo índice ORIGINAL
+   (conteúdo), nunca pela letra. */
+var SIM = [
+{q:"Qual alternativa traz APENAS usos dos rios citados no livro?",
+ a:["Obtenção de alimentos, transporte, recreação e turismo, e geração de energia elétrica",
+    "Suporte à aviação, regulação da temperatura e distribuição das chuvas",
+    "Transporte de poluentes, suporte à aviação e energia eólica",
+    "Compactação do solo, queimadas e mineração ilegal"], c:0,
+ fb:["São os quatro usos dos rios da página 74 (além de fornecer água).",
+     "Esses são aspectos da importância do AR, não dos rios.",
+     "Também são aspectos do AR.",
+     "Esses são problemas ambientais, não usos dos rios."]},
+
+{q:"Sobre a usina hidrelétrica de Itaipu Binacional, é correto afirmar que ela:",
+ a:["fica no rio Paraná, na fronteira entre Brasil e Paraguai, e é a segunda maior geradora de energia hidrelétrica do mundo",
+    "é a maior usina hidrelétrica do mundo, à frente da usina Três Gargantas",
+    "fica na China e produz energia com o vento",
+    "é um parque eólico localizado no estado do Ceará"], c:0,
+ fb:["Correto: rio Paraná, Brasil e Paraguai, segunda maior do mundo.",
+     "Pegadinha! A maior é Três Gargantas; Itaipu é a segunda.",
+     "Três Gargantas é que fica na China, e as hidrelétricas usam a água, não o vento.",
+     "O parque eólico do livro fica em Aracati (CE); Itaipu é uma hidrelétrica."]},
+
+{q:"O parque eólico de Aracati, no Ceará, produz energia elétrica usando:",
+ a:["o ar em movimento (o vento)","a força das águas em movimento","a fumaça das indústrias","o petróleo"], c:0,
+ fb:["Correto: energia eólica é a energia do ar.",
+     "A força das águas é usada nas hidrelétricas.",
+     "Fumaça é poluição, não fonte de energia limpa.",
+     "O livro não liga o parque eólico ao petróleo."]},
+
+{q:"No livro, um solo endurecido e impróprio ao cultivo aparece numa área de criação de gado no Rio Grande do Sul. O que causou isso?",
+ a:["A compactação pelo pisoteio dos rebanhos","O excesso de praças e jardins","A energia eólica","A reciclagem de embalagens"], c:0,
+ fb:["Correto: o pisoteio dos rebanhos compacta o solo.",
+     "Áreas verdes ajudam o ambiente; não endurecem o solo.",
+     "Energia eólica não tem relação com o solo endurecido.",
+     "Reciclar embalagens é uma medida boa para o ambiente."]},
+
+{q:"Leia a frase: “O ar dispersa poeira, fuligem e gases tóxicos.” Ela descreve qual aspecto do ar?",
+ a:["Transporte de poluentes","Suporte à aviação","Geração de energia","Regulação da temperatura"], c:0,
+ fb:["Correto: espalhar poeira, fuligem e gases é o transporte de poluentes.",
+     "A aviação é o voo das aeronaves.",
+     "A geração de energia é a energia eólica.",
+     "A regulação da temperatura é o vento amenizar o calor."]},
+
+{q:"De acordo com o Sistema Nacional de Informações sobre Saneamento (SNIS):",
+ a:["menos da metade do esgoto gerado no Brasil é tratado","todo o esgoto do Brasil é tratado","mais da metade do esgoto é tratada","o Brasil não produz esgoto"], c:0,
+ fb:["Correto: é o dado da página 76.",
+     "Infelizmente não: menos da metade é tratado.",
+     "É o contrário: menos da metade.",
+     "Todo país produz esgoto; o problema é que menos da metade é tratado."]},
+
+{q:"A foto do rio Tietê coberto por espuma tóxica, em Salto (SP), mostra que:",
+ a:["mesmo sendo ilegal, muitas indústrias ainda lançam água poluída diretamente nos rios","o rio Tietê é o rio mais limpo do Brasil","a espuma é sinal de água potável","a espuma foi trazida pelo vento de outro país"], c:0,
+ fb:["Correto: é a legenda da foto.",
+     "A foto mostra justamente poluição.",
+     "Espuma tóxica é sinal de água poluída.",
+     "O livro explica que a poluição vem das indústrias que lançam água poluída."]},
+
+{q:"Observe: I. a chuva leva terra, rochas e galhos para o rio; II. a vegetação da margem é retirada; III. os materiais se depositam no leito e formam bancos de areia; IV. o solo fica desprotegido. Qual é a ordem correta?",
+ a:["II, IV, I, III","I, II, III, IV","IV, III, II, I","III, I, IV, II"], c:0,
+ fb:["Correto: retiram a vegetação (II) → solo desprotegido (IV) → a chuva leva os materiais (I) → bancos de areia (III).",
+     "A chuva só leva a terra depois que a vegetação foi retirada.",
+     "O banco de areia é o último passo, não o segundo.",
+     "O banco de areia não pode vir antes da chuva."]},
+
+{q:"Por que os bancos de areia são um problema para os rios?",
+ a:["Interferem no fluxo das águas e na navegação e aumentam as enchentes","Deixam a água mais limpa","Aumentam a quantidade de peixes","Impedem as enchentes"], c:0,
+ fb:["Correto: são os três problemas citados no livro.",
+     "Não: eles são sinal de erosão e de problema.",
+     "O livro não diz isso.",
+     "É o contrário: eles aumentam as enchentes."]},
+
+{q:"Segundo o livro, erosão é o processo em que:",
+ a:["o solo e as rochas são desgastados por agentes como a água e o vento, formando sedimentos","as plantas crescem nas margens dos rios","o ar fica mais limpo nas cidades","a água do rio é tratada e fica potável"], c:0,
+ fb:["Correto: é a definição do boxe da página 76.",
+     "Plantas nas margens ajudam a EVITAR a erosão.",
+     "Erosão não tem relação com o ar limpo.",
+     "Tratar a água é saneamento, não erosão."]},
+
+{q:"Na mineração ilegal, o desmatamento das áreas onde os minérios são extraídos provoca:",
+ a:["aumento da erosão e da deposição de sedimentos nos rios","diminuição da erosão","limpeza da água dos rios","mais áreas verdes nas cidades"], c:0,
+ fb:["Correto: é o que diz a página 77.",
+     "É o contrário: aumenta a erosão.",
+     "O acúmulo de sedimentos e produtos tóxicos piora a água.",
+     "Desmatamento destrói vegetação, não cria áreas verdes."]},
+
+{q:"As condições do ar no Brasil são influenciadas por fatores como:",
+ a:["a industrialização e o desmatamento","o turismo e a canoagem","a reciclagem e a compostagem","o gotejamento e o reúso"], c:0,
+ fb:["Correto: é o que diz a página 78.",
+     "Turismo e canoagem são usos dos rios.",
+     "Reciclagem e compostagem são medidas boas para a água.",
+     "Gotejamento e reúso são medidas para economizar água."]},
+
+{q:"Além de prejudicar a saúde humana, a poluição do ar pode afetar:",
+ a:["a qualidade do solo, a diversidade da vida animal e vegetal e os ambientes aquáticos","somente os aviões","apenas as pessoas que moram na praia","nada além das pessoas"], c:0,
+ fb:["Correto: são os efeitos ambientais citados no livro.",
+     "O livro não diz isso.",
+     "Não: a poluição do ar afeta muitos lugares e seres vivos.",
+     "Afeta também o solo, os animais, as plantas e as águas."]},
+
+{q:"As fotos A (veículo soltando fumaça pelo escapamento) e B (indústria lançando fumaça no ar) mostram:",
+ a:["atividades que causam poluição do ar","formas de energia limpa","medidas para melhorar o ar","poluição do solo por defensivos"], c:0,
+ fb:["Correto: o livro pergunta quais atividades causam poluição do ar em cada foto.",
+     "Fumaça não é energia limpa; limpas são a eólica e a solar.",
+     "São causas da poluição, não soluções.",
+     "Nenhuma das fotos mostra defensivo agrícola."]},
+
+{q:"Qual medida combina com a ÁREA RURAL para melhorar a qualidade do ar?",
+ a:["Evitar queimadas e preservar a vegetação nativa","Criar praças e jardins no centro da cidade","Aumentar o número de veículos","Desmatar para abrir mais pasto"], c:0,
+ fb:["Correto: é a medida do livro para a área rural.",
+     "Essa é a medida para as CIDADES, não para a área rural.",
+     "Veículos aumentam a poluição.",
+     "Desmatar piora o ar."]},
+
+{q:"No mapa “Brasil: qualidade do ar (09/09/2024)”, o que as cores e as chaminhas mostram?",
+ a:["A qualidade do ar em cada área, de boa até perigosa, e os lugares com queimadas","A quantidade de rios de cada estado","Onde ficam as usinas hidrelétricas","As plantações de café do Brasil"], c:0,
+ fb:["Correto: a legenda vai de 'boa' a 'perigosa' e a chaminha marca queimadas.",
+     "O mapa é de qualidade do ar, não de rios.",
+     "O mapa não mostra usinas.",
+     "O mapa não mostra plantações."]},
+
+{q:"Uma indústria lançou esgoto num rio. Dias depois, pescadores que moram bem mais abaixo, no mesmo rio, ficaram sem peixe. Isso acontece porque:",
+ a:["a água se desloca e a poluição prejudica a pesca ao longo de extensos trechos do rio","a poluição fica parada no lugar onde foi lançada","os peixes não precisam de água limpa","o esgoto vira água potável no caminho"], c:0,
+ fb:["Correto: a poluição viaja com a água (página 80).",
+     "Não fica: a água se desloca e leva a poluição.",
+     "A poluição prejudica a vida aquática.",
+     "Esgoto não vira água potável sozinho; precisa ser tratado."]},
+
+{q:"Por que, se a vegetação for eliminada, as comunidades quilombolas de Mateiros (TO) perdem parte do seu sustento?",
+ a:["Porque fazem artigos com capim-dourado, que vem da vegetação","Porque trabalham em fábricas de carros","Porque vivem da mineração ilegal","Porque vendem energia eólica"], c:0,
+ fb:["Correto: a produção com capim-dourado faz parte das suas tradições e do sustento.",
+     "O livro não fala disso.",
+     "A mineração ilegal é um problema ambiental, não o sustento delas.",
+     "O livro não fala disso."]},
+
+{q:"Para os povos indígenas e as comunidades tradicionais, a água dos rios, lagos, lagoas e do mar é importante:",
+ a:["para práticas culturais, econômicas, de subsistência e de lazer, e aparece em histórias e rituais","apenas para lavar roupa","só para as usinas hidrelétricas","somente para o turismo de pessoas de fora"], c:0,
+ fb:["Correto: é o que diz 'Preservação ambiental e cultural' (página 82).",
+     "Não é só isso: ela é central nos modos de vida desses povos.",
+     "O livro fala da importância para os modos de vida, não das usinas.",
+     "A importância é para os próprios povos e comunidades."]},
+
+{q:"A poluição dos manguezais coloca em risco as marisqueiras de Travosa (MA) porque:",
+ a:["pode reduzir os animais dos mangues que elas coletam para ter alimento e renda","aumenta a quantidade de mariscos","melhora a qualidade do ar","não tem nenhuma relação com elas"], c:0,
+ fb:["Correto: elas vivem do extrativismo nos mangues.",
+     "É o contrário: a poluição reduz esse recurso.",
+     "Não tem relação com o ar.",
+     "Tem relação direta: elas dependem dos mangues."]},
+
+{q:"Leite, café, algodão e carne são transformados em novos produtos em indústrias localizadas na própria área rural. Isso é:",
+ a:["a agroindústria","a mineração ilegal","a energia eólica","a pesca artesanal"], c:0,
+ fb:["Correto: é a definição de agroindústria (página 89).",
+     "Mineração extrai minérios, não transforma alimentos.",
+     "Energia eólica é a energia do vento.",
+     "Pesca não transforma leite, café, algodão e carne."]},
+
+{q:"Segundo o texto da Embrapa que aparece no livro, os processos agroindustriais podem gerar resíduos em quais estados?",
+ a:["Líquido, sólido e gasoso","Só líquido","Só sólido","Nenhum: a agroindústria não gera resíduos"], c:0,
+ fb:["Correto: o texto fala em resíduos líquidos, sólidos e gasosos.",
+     "Não é só líquido.",
+     "Não é só sólido.",
+     "Gera, sim — e o destino inadequado dos resíduos é um dos problemas."]},
+
+{q:"Qual destas situações é um BOM uso da água pelas atividades humanas?",
+ a:["O reúso da água em residências e indústrias","O despejo de resíduos em rios e lagos","Deixar os vazamentos sem conserto","Usar defensivos agrícolas em excesso"], c:0,
+ fb:["Correto: é a resposta do exercício da página 92.",
+     "Isso polui a água.",
+     "Vazamentos devem ser identificados e controlados.",
+     "Defensivos em excesso contaminam o solo e a água."]},
+
+{q:"De cada 100 litros de água disponíveis no Brasil, qual é a ordem do MAIOR para o MENOR consumo?",
+ a:["Agropecuária (70), indústrias (22), uso doméstico (8)","Uso doméstico (70), indústrias (22), agropecuária (8)","Indústrias (70), agropecuária (22), uso doméstico (8)","Agropecuária (22), indústrias (70), uso doméstico (8)"], c:0,
+ fb:["Correto: são os números da página 95.",
+     "Trocou: as casas usam só 8 litros.",
+     "As indústrias usam 22, não 70.",
+     "A agropecuária usa 70, não 22."]},
+
+{q:"A notícia diz que o Brasil é referência mundial porque recicla 94% das embalagens de defensivos agrícolas. Essa medida ajuda a:",
+ a:["reduzir os impactos ambientais da agroindústria na água","aumentar a poluição dos rios","produzir mais fumaça nas cidades","formar mais bancos de areia"], c:0,
+ fb:["Correto: a reciclagem de embalagens é uma das medidas que protegem a água.",
+     "É o contrário.",
+     "Reciclar embalagens não produz fumaça.",
+     "Bancos de areia vêm da erosão, não da reciclagem."]}
+];
+
+/* =====================================================================
+   APLICAÇÃO — trilha com cadeados, render e relatório
+   ===================================================================== */
+(function(){
+"use strict";
+
+/* ---------- armazenamento seguro ---------- */
+var memoria = {};
+function ler(k){
+  try{ var v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }
+  catch(e){ return memoria[k] ? JSON.parse(memoria[k]) : null; }
+}
+function gravar(k,o){
+  var s = JSON.stringify(o);
+  try{ localStorage.setItem(k,s); }catch(e){ memoria[k]=s; }
+  memoria[k]=s;
+  marcaSalvo();
+}
+function apagarTudo(){
+  CHAVES.forEach(function(k){ try{ localStorage.removeItem(k); }catch(e){} delete memoria[k]; });
+}
+
+var K = {
+  leitura: SLUG+"_leitura_v1",
+  mapa:    SLUG+"_mapa_v1",
+  vf:      SLUG+"_vf_v1",
+  resumo:  SLUG+"_resumo_v1",
+  simulado:SLUG+"_sim_v1",
+  trilha:  SLUG+"_trilha_v1"
+};
+var CHAVES = Object.keys(K).map(function(x){return K[x];});
+
+var ETAPAS = [
+  {id:"leitura",  icone:"📖", nome:"Leitura Guiada",     painel:"p-leitura"},
+  {id:"mapa",     icone:"🧠", nome:"Mapa das Cores",  painel:"p-mapa"},
+  {id:"vf",       icone:"✅", nome:"Colorido ou Borrado?",  painel:"p-vf"},
+  {id:"resumo",   icone:"🗺️", nome:"Estojo da Nina", painel:"p-resumo"},
+  {id:"simulado", icone:"📝", nome:"A Grande Pintura", painel:"p-simulado"}
+];
+
+/* ---------- estados ---------- */
+var S = {};
+function carregar(){
+  S.leitura  = ler(K.leitura)  || {blocos:{}, concluido:false, concluidoEm:null};
+  S.mapa     = ler(K.mapa)     || {lac:{}, concluido:false, concluidoEm:null};
+  S.vf       = ler(K.vf)       || {melhor:0, rodadas:0, concluido:false, concluidoEm:null};
+  S.resumo   = ler(K.resumo)   || {rolagem:0, concluido:false, concluidoEm:null};
+  S.simulado = ler(K.simulado) || {resp:{}, enviado:false, acertos:null, codigo:null, concluido:false, concluidoEm:null};
+  S.trilha   = ler(K.trilha)   || {liberadoPelosPais:false, liberadoEm:null};
+}
+function salvar(id){ gravar(K[id], S[id]); }
+function agora(){ return new Date().toISOString(); }
+function concluir(id){
+  if(S[id].concluido) return;
+  S[id].concluido = true; S[id].concluidoEm = agora();
+  salvar(id); montarAbas(); atualizarBarra();
+}
+function fmtData(iso){
+  if(!iso) return "—";
+  var d = new Date(iso);
+  return ("0"+d.getDate()).slice(-2)+"/"+("0"+(d.getMonth()+1)).slice(-2)+"/"+d.getFullYear()+
+         " às "+("0"+d.getHours()).slice(-2)+":"+("0"+d.getMinutes()).slice(-2);
+}
+
+/* ---------- trilha ---------- */
+var TOTAL_GAL = LEITURA.length;
+var TOTAL_LAC = MAPA.reduce(function(s,r){ return s + r.itens.filter(function(i){return i.t==="lacuna";}).length; },0);
+
+function galeriasFeitas(){
+  var n=0;
+  for(var i=0;i<TOTAL_GAL;i++){ var b=S.leitura.blocos[i]; if(b && b.ok) n++; }
+  return n;
+}
+function lacunasFeitas(){
+  var n=0;
+  for(var k in S.mapa.lac){ if(S.mapa.lac[k] && S.mapa.lac[k].ok) n++; }
+  return n;
+}
+function liberado(){ return S.trilha.liberadoPelosPais === true; }
+
+function destravada(id){
+  if(liberado()) return true;
+  var i = ETAPAS.map(function(e){return e.id;}).indexOf(id);
+  if(i<=0) return true;
+  if(S[id].concluido) return true;
+  return S[ETAPAS[i-1].id].concluido === true;
+}
+function fraseCadeado(id){
+  switch(id){
+    case "mapa":
+      return "Destrava quando você concluir as "+TOTAL_GAL+" lápis da Leitura Guiada (faltam "+
+             (TOTAL_GAL - galeriasFeitas())+").";
+    case "vf":
+      return "Destrava quando você encaixar as "+TOTAL_LAC+" peças do Mapa das Cores (faltam "+
+             (TOTAL_LAC - lacunasFeitas())+").";
+    case "resumo":
+      return "Destrava quando você jogar uma rodada inteira do Colorido ou Borrado? (as 12 frases até o fim).";
+    case "simulado":
+      return "Destrava quando você clicar em \"✅ Li o resumo até o fim\", no pé do Estojo da Nina.";
+  }
+  return "Ainda está trancado.";
+}
+
+/* ---------- abas ---------- */
+var abaAtual = "leitura";
+var destravadasAntes = {};
+var ultimoRenderTrancado = {};
+function renderPainel(id){
+  if(id==="leitura")  return renderLeitura();
+  if(id==="mapa")     return renderMapa();
+  if(id==="vf")       return renderVF();
+  if(id==="resumo")   return renderResumo();
+  if(id==="simulado") return renderSimulado();
+}
+function montarAbas(){
+  var nav = document.getElementById("abas");
+  nav.innerHTML = "";
+  ETAPAS.forEach(function(e){
+    var b = document.createElement("button");
+    var ok = destravada(e.id);
+    b.innerHTML = (ok ? e.icone : "🔒") + " " + e.nome;
+    if(e.id===abaAtual) b.className = "ativa";
+    if(!ok){ b.className += " trancada"; }
+    if(S[e.id].concluido) b.className += " concluida";
+    if(ok && destravadasAntes[e.id]===false && !S[e.id].concluido){ b.className += " novo"; }
+    destravadasAntes[e.id] = ok;
+    b.onclick = function(){ irPara(e.id); };
+    nav.appendChild(b);
+  });
+}
+function irPara(id){
+  if(!destravada(id)){
+    modal("🔒 Esta etapa ainda está trancada",
+          "<p>"+fraseCadeado(id)+"</p>",
+          [{txt:"Entendi!", cls:""}]);
+    return;
+  }
+  abaAtual = id;
+  ETAPAS.forEach(function(e){
+    document.getElementById(e.painel).className = "painel" + (e.id===id ? " ativo" : "");
+  });
+  /* se o painel foi desenhado trancado (ou ainda está trancado), redesenha:
+     assim o conteúdo aparece ao destravar e a contagem do cadeado fica atual */
+  if(ultimoRenderTrancado[id] || !destravada(id)) renderPainel(id);
+  montarAbas(); atualizarBarra();
+  window.scrollTo({top:0, behavior:"smooth"});
+  if(id==="resumo") setTimeout(checarRolagem, 400);
+}
+
+/* ---------- barra geral ---------- */
+function atualizarBarra(){
+  pintarPaisagem();
+  var feitas = ETAPAS.filter(function(e){return S[e.id].concluido;}).length;
+  var pct = Math.round(feitas/ETAPAS.length*100);
+  document.getElementById("barraGeral").style.width = pct+"%";
+  var txt;
+  if(feitas===0) txt = "🦦 A Nina está pronta para colorir!";
+  else if(feitas===ETAPAS.length) txt = "🏆 A paisagem ficou toda colorida! Tudo liberado para revisar.";
+  else txt = "🎨 "+feitas+" de "+ETAPAS.length+" etapas concluídas ("+pct+"%).";
+  document.getElementById("txtGeral").textContent = txt;
+  var at = ETAPAS.filter(function(e){return e.id===abaAtual;})[0];
+  var det = "";
+  if(abaAtual==="leitura") det = "Lápis: "+galeriasFeitas()+" de "+TOTAL_GAL;
+  if(abaAtual==="mapa")    det = "🧩 Mapa: "+lacunasFeitas()+" de "+TOTAL_LAC+" peças encaixadas";
+  if(abaAtual==="vf" && S.vf.rodadas) det = "⭐ Melhor placar: "+S.vf.melhor+" de 12";
+  if(abaAtual==="resumo")  det = "Lido: "+S.resumo.rolagem+"%";
+  if(abaAtual==="simulado" && S.simulado.enviado) det = "Nota: "+S.simulado.acertos+" de "+SIM.length;
+  document.getElementById("txtEtapa").textContent = det || (at ? at.icone+" "+at.nome : "");
+  if(liberado()) document.getElementById("txtEtapa").textContent = (det? det+" · ":"")+"🔓 Trilha liberada";
+}
+
+
+/* ---------- paisagem do topo: cada lápis concluído pinta uma parte ---------- */
+function pintarPaisagem(){
+  var feitos = {};
+  for(var i=0;i<LEITURA.length;i++){ var b=S.leitura.blocos[i]; if(b && b.ok) feitos[i+1]=true; }
+  var els = document.querySelectorAll("[data-l]");
+  for(var k=0;k<els.length;k++){
+    var el = els[k], n = Number(el.getAttribute("data-l"));
+    var on = feitos[n] || S.leitura.concluido;
+    if(el.getAttribute("data-traco")){
+      el.setAttribute("stroke", on ? el.getAttribute("data-traco") : "#D5D9E0");
+    }else{
+      el.setAttribute("fill", on ? el.getAttribute("data-cor") : (el.getAttribute("data-cinza")||"#D5D9E0"));
+    }
+  }
+  var est = document.getElementById("estojo");
+  if(est && !est.dataset.ok){
+    est.dataset.ok = "1";
+    LEITURA.forEach(function(g,i){
+      var d = document.createElement("span"); d.className="lapis"; d.id="lp"+i;
+      d.title = g.n+" — "+g.nome; d.textContent = (i<LEITURA.length-1) ? (i+1) : "🌈";
+      est.appendChild(d);
+    });
+  }
+  LEITURA.forEach(function(g,i){
+    var d = document.getElementById("lp"+i); if(!d) return;
+    var on = feitos[i+1] || S.leitura.concluido;
+    d.style.background = on ? g.cor : "#D5D9E0";
+    d.classList.toggle("on", !!on);
+  });
+}
+/* ---------- pegadinhas + tabela de cobertura no fim da leitura ---------- */
+function pintarExtrasLeitura(){
+  var el = document.getElementById("extrasLeitura"); if(!el) return;
+  if(!S.leitura.concluido && !liberado()){ el.innerHTML=""; return; }
+  var h = "<div class='pegadinhas'><h3>🚨 10 pegadinhas para não cair na prova</h3><ol>";
+  LEITURA_PEGADINHAS.forEach(function(p){ h += "<li>"+p+"</li>"; });
+  h += "</ol></div><div class='cobertura'><h3>🗂️ Tudo o que cai na prova → onde você estudou</h3><table><tr><th>Assunto (páginas do livro)</th><th>Lápis</th></tr>";
+  LEITURA_COBERTURA.forEach(function(c){ h += "<tr><td>"+c[0]+"</td><td><b>"+c[1]+"</b></td></tr>"; });
+  h += "</table></div>";
+  el.innerHTML = h;
+}
+/* ---------- modal ---------- */
+function modal(titulo, html, botoes){
+  var cx = document.getElementById("modalCaixa");
+  cx.innerHTML = "<h3>"+titulo+"</h3>"+html+"<div id='modalBtns'></div>";
+  var box = cx.querySelector("#modalBtns");
+  (botoes||[{txt:"Fechar"}]).forEach(function(b){
+    var el = document.createElement("button");
+    el.textContent = b.txt; if(b.cls) el.className = b.cls;
+    el.onclick = function(){ fecharModal(); if(b.fn) b.fn(); };
+    box.appendChild(el);
+  });
+  document.getElementById("modalFundo").classList.add("ver");
+}
+function fecharModal(){ document.getElementById("modalFundo").classList.remove("ver"); }
+document.getElementById("modalFundo").addEventListener("click", function(ev){
+  if(ev.target.id==="modalFundo") fecharModal();
+});
+
+/* ---------- embaralhador com semente (mulberry32) ---------- */
+function mulberry32(a){
+  return function(){
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    var t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+function embaralhar(arr, semente){
+  var r = mulberry32(semente), a = arr.slice();
+  for(var i=a.length-1;i>0;i--){ var j = Math.floor(r()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; }
+  return a;
+}
+
+/* =====================================================================
+   1) LEITURA GUIADA
+   ===================================================================== */
+function renderLeitura(){
+  ultimoRenderTrancado.leitura = false;
+  var wrap = document.getElementById("lapisLista");
+  wrap.innerHTML = "";
+  LEITURA.forEach(function(g, idx){
+    var est = S.leitura.blocos[idx] || {resp:{}, ok:false};
+    var liberadaGal = idx===0 || (S.leitura.blocos[idx-1] && S.leitura.blocos[idx-1].ok) || liberado() || S.leitura.concluido;
+
+    var div = document.createElement("div");
+    div.className = "galeria" + (est.ok ? " feita" : "") + (liberadaGal ? "" : " bloqueada");
+    div.id = "gal"+idx;
+
+    var cab = document.createElement("div");
+    cab.className = "cabeca";
+    cab.innerHTML = "<span class='num'>"+(liberadaGal ? (est.ok ? "✅" : idx+1) : "🔒")+"</span>"+
+      "<span class='nome'>"+g.n+" — "+g.nome+"<span class='pag'>"+g.pag+"</span></span>"+
+      "<span class='seta'>"+(liberadaGal?"▾":"🔒")+"</span>";
+    cab.onclick = function(){
+      if(!liberadaGal){
+        modal("🔒 Lápis trancado",
+          "<p>A Nina ainda não chegou neste lápis! Termine o <b>"+LEITURA[idx-1].n+"</b> para ele se abrir.</p>",
+          [{txt:"Voltar"}]);
+        return;
+      }
+      div.classList.toggle("aberta");
+    };
+    div.appendChild(cab);
+
+    var corpo = document.createElement("div");
+    corpo.className = "corpo";
+    corpo.innerHTML = "<div class='texto'>"+g.texto+"</div>";
+
+    g.qs.forEach(function(q, qi){
+      var pd = document.createElement("div");
+      pd.className = "pergunta";
+      pd.innerHTML = "<p class='enunciado'>"+(qi+1)+". "+q.q+"</p>";
+      var fb = document.createElement("div"); fb.className = "feedback";
+      var ordem = embaralhar(q.a.map(function(t,i){return i;}), (idx+1)*1000 + qi*37 + 7);
+
+      ordem.forEach(function(origIdx){
+        var bt = document.createElement("button");
+        bt.className = "alt";
+        bt.innerHTML = q.a[origIdx];
+        bt.onclick = function(){
+          if(est.resp[qi]!==undefined) return;
+          est.resp[qi] = origIdx;
+          if(!est.primeira) est.primeira = {};
+          est.primeira[qi] = (origIdx===q.c);
+          pd.querySelectorAll(".alt").forEach(function(x){ x.disabled = true; });
+          bt.classList.add(origIdx===q.c ? "certa" : "errada");
+          if(origIdx!==q.c){
+            pd.querySelectorAll(".alt").forEach(function(x){
+              if(x.innerHTML===q.a[q.c]) x.classList.add("certa");
+            });
+          }
+          fb.className = "feedback " + (origIdx===q.c ? "ok" : "nao");
+          fb.innerHTML = (origIdx===q.c ? "🎉 <b>Isso aí!</b> " : "🤔 <b>Quase!</b> ") + q.fb[origIdx];
+          S.leitura.blocos[idx] = est;
+          verificaGaleria(idx, est, g, div);
+        };
+        if(est.resp[qi]!==undefined){
+          bt.disabled = true;
+          if(origIdx===est.resp[qi]) bt.classList.add(est.resp[qi]===q.c ? "certa":"errada");
+          if(origIdx===q.c) bt.classList.add("certa");
+        }
+        pd.appendChild(bt);
+      });
+      if(est.resp[qi]!==undefined){
+        var r = est.resp[qi];
+        fb.className = "feedback " + (r===q.c ? "ok":"nao");
+        fb.innerHTML = (r===q.c ? "🎉 <b>Isso aí!</b> " : "🤔 <b>Quase!</b> ") + q.fb[r];
+      }
+      pd.appendChild(fb);
+      corpo.appendChild(pd);
+    });
+
+    var aviso = document.createElement("div");
+    aviso.className = "pe-material"; aviso.id = "pe"+idx;
+    corpo.appendChild(aviso);
+    div.appendChild(corpo);
+    wrap.appendChild(div);
+
+    if(est.ok) pintarPe(idx, g);
+    if(liberadaGal && !est.ok && idx===galeriasFeitas()) div.classList.add("aberta");
+  });
+  pintarFimLeitura();
+}
+
+function verificaGaleria(idx, est, g, div){
+  var todas = g.qs.every(function(_,i){ return est.resp[i]!==undefined; });
+  if(todas && !est.ok){
+    est.ok = true; est.quando = agora();
+    S.leitura.blocos[idx] = est;
+    div.classList.add("feita");
+    div.querySelector(".cabeca .num").textContent = "✅";
+    pintarPe(idx, g);
+    salvar("leitura");
+    renderLeituraDestrava(idx);
+    if(galeriasFeitas()===TOTAL_GAL) concluirLeitura();
+  }else{
+    S.leitura.blocos[idx] = est;
+    salvar("leitura");
+  }
+  atualizarBarra();
+}
+function pintarPe(idx, g){
+  var el = document.getElementById("pe"+idx); if(!el) return;
+  if(idx < LEITURA.length-1){
+    el.innerHTML = "<p style='margin:6px 0 0'>🎨 <b>Lápis concluído!</b> Mais um pedaço da paisagem ganhou cor.</p>";
+    var b = document.createElement("button"); b.className="btn-prox";
+    b.textContent = "➡️ Ir para o "+LEITURA[idx+1].n;
+    b.onclick = function(){
+      var alvo = document.getElementById("gal"+(idx+1));
+      document.getElementById("gal"+idx).classList.remove("aberta");
+      alvo.classList.add("aberta");
+      alvo.scrollIntoView({behavior:"smooth", block:"start"});
+    };
+    el.appendChild(b);
+  }else{
+    el.innerHTML = "<p style='margin:6px 0 0'>🏆 <b>Você usou todos os lápis!</b></p>";
+  }
+}
+function renderLeituraDestrava(idx){
+  var prox = document.getElementById("gal"+(idx+1));
+  if(!prox) return;
+  prox.classList.remove("bloqueada");
+  var cab = prox.querySelector(".cabeca");
+  cab.querySelector(".num").textContent = (idx+2);
+  cab.querySelector(".seta").textContent = "▾";
+  var g2 = LEITURA[idx+1];
+  var novoCab = cab.cloneNode(true);
+  cab.parentNode.replaceChild(novoCab, cab);
+  novoCab.onclick = function(){ prox.classList.toggle("aberta"); };
+}
+function concluirLeitura(){
+  concluir("leitura");
+  pintarFimLeitura();
+  modal("🏆 Leitura Guiada concluída!",
+    "<p>Você usou os <b>"+TOTAL_GAL+" lápis</b> da Nina e a paisagem ficou colorida! 🦦🎨</p>"+
+    "<p>Agora o <b>🧠 Mapa das Cores</b> está destravado — é hora de organizar tudo o que você leu.</p>",
+    [{txt:"Ir para o Mapa 🧠", fn:function(){ irPara("mapa"); }},{txt:"Ficar aqui", cls:"cinza"}]);
+}
+function pintarFimLeitura(){
+  var el = document.getElementById("fimLeitura");
+  pintarExtrasLeitura();
+  if(!S.leitura.concluido){ el.innerHTML = ""; return; }
+  el.innerHTML = "<div class='pe-material'><p>🏆 <b>Leitura Guiada concluída!</b> Próxima parada: o Mapa das Cores.</p></div>";
+  var b = document.createElement("button"); b.className="btn-prox";
+  b.textContent = "🧠 Ir para o Mapa das Cores";
+  b.onclick = function(){ irPara("mapa"); };
+  el.querySelector(".pe-material").appendChild(b);
+}
+
+/* =====================================================================
+   2) MAPA MENTAL PARA ENCAIXAR
+   ===================================================================== */
+function renderMapa(){
+  var wrap = document.getElementById("mapaWrap");
+  ultimoRenderTrancado.mapa = !destravada("mapa");
+  if(!destravada("mapa")){ wrap.innerHTML = htmlCadeado("mapa"); ligarVoltar(wrap); return; }
+  wrap.innerHTML =
+    "<div class='contador-mapa' id='contMapa'></div>"+
+    "<div class='mapa-area' id='mapaArea'><div class='no-central'>🎨 RIOS, AR E ATIVIDADES ECONÔMICAS</div><div id='ramos'></div></div>"+
+    "<div class='mapa-completo' id='mapaFim'></div>";
+  var ramos = document.getElementById("ramos");
+
+  MAPA.forEach(function(r, ri){
+    var d = document.createElement("div");
+    d.className = "ramo"; d.style.borderLeftColor = r.cor;
+    d.innerHTML = "<h4 style='color:"+r.cor+"'>"+r.titulo+"</h4>";
+    var it = document.createElement("div"); it.className = "itens";
+    r.itens.forEach(function(item, ii){
+      if(item.t==="fixo"){
+        var f = document.createElement("span"); f.className="fixo"; f.innerHTML = item.txt;
+        it.appendChild(f);
+      }else{
+        var est = S.mapa.lac[item.id] || null;
+        var lc = document.createElement("span"); lc.className = "lacuna";
+        if(est && est.ok){
+          lc.classList.add("ok");
+          lc.innerHTML = "<span class='pergunta-mini'>"+item.dica+"</span><span class='preenchida'>🧩 "+item.certa+"</span>";
+        }else{
+          lc.innerHTML = "<span class='pergunta-mini'>"+item.dica+"</span>";
+          var ops = document.createElement("span"); ops.className="ops";
+          var par = embaralhar([item.certa, item.outra], (ri+1)*91 + ii*13);
+          par.forEach(function(txt){
+            var b = document.createElement("button"); b.textContent = txt;
+            b.onclick = function(){
+              var e2 = S.mapa.lac[item.id] || {tentativas:0, ok:false, primeira:false};
+              e2.tentativas++;
+              if(txt===item.certa){
+                e2.ok = true;
+                e2.primeira = (e2.tentativas===1);
+                S.mapa.lac[item.id] = e2; salvar("mapa");
+                lc.classList.add("ok");
+                lc.innerHTML = "<span class='pergunta-mini'>"+item.dica+"</span><span class='preenchida'>🧩 "+item.certa+"</span>";
+                atualizaContadorMapa();
+              }else{
+                S.mapa.lac[item.id] = e2; salvar("mapa");
+                b.classList.add("err");
+                setTimeout(function(){ b.classList.remove("err"); }, 500);
+              }
+            };
+            ops.appendChild(b);
+          });
+          lc.appendChild(ops);
+        }
+        it.appendChild(lc);
+      }
+    });
+    d.appendChild(it);
+    ramos.appendChild(d);
+  });
+  atualizaContadorMapa();
+}
+function atualizaContadorMapa(){
+  var n = lacunasFeitas();
+  var c = document.getElementById("contMapa"); if(!c) return;
+  c.textContent = "🧩 Mapa: "+n+" de "+TOTAL_LAC+" peças encaixadas";
+  atualizarBarra();
+  if(n===TOTAL_LAC){
+    document.getElementById("mapaArea").classList.add("completo");
+    var fim = document.getElementById("mapaFim");
+    fim.className = "mapa-completo ver";
+    fim.innerHTML = "<h3 style='margin:0 0 8px;color:#2C7A37'>🧠 Mapa completo!</h3>"+
+      "<p>Você montou o mapa inteiro das duas unidades, peça por peça, e ele ganhou todas as cores! Agora o jogo <b>✅ Colorido ou Borrado?</b> está destravado!</p>";
+    var b = document.createElement("button"); b.className="btn-prox";
+    b.textContent = "✅ Jogar Colorido ou Borrado?";
+    b.onclick = function(){ irPara("vf"); };
+    fim.appendChild(b);
+    if(!S.mapa.concluido){
+      concluir("mapa");
+      modal("🧠 Mapa completo!","<p>Todas as <b>"+TOTAL_LAC+" peças</b> encaixadas! O jogo <b>Colorido ou Borrado?</b> está liberado.</p>",
+        [{txt:"Jogar agora ✅", fn:function(){ irPara("vf"); }},{txt:"Ficar aqui", cls:"cinza"}]);
+    }
+  }
+}
+
+/* =====================================================================
+   3) VERDADEIRO OU FALSO
+   ===================================================================== */
+var vfEstado = null;
+function renderVF(){
+  var wrap = document.getElementById("vfWrap");
+  ultimoRenderTrancado.vf = !destravada("vf");
+  if(!destravada("vf")){ wrap.innerHTML = htmlCadeado("vf"); ligarVoltar(wrap); return; }
+  wrap.innerHTML =
+    "<div class='vf-card' id='vfCard'>"+
+      "<div class='barra-fundo'><div class='barra-fill' id='vfBarra'></div></div>"+
+      "<p style='margin:10px 0 0;font-size:.92rem'><b id='vfPos'></b> · <span class='estrelas' id='vfEstrelas'></span></p>"+
+      "<div class='vf-frase' id='vfFrase'></div>"+
+      "<div class='vf-botoes'><button class='btn-v' id='btnV'>✔️ VERDADEIRO</button><button class='btn-f' id='btnF'>✖️ FALSO</button></div>"+
+      "<div class='vf-expl' id='vfExpl'></div>"+
+    "</div>"+
+    "<div class='vf-final' id='vfFinal'></div>";
+  if(S.vf.rodadas>0){
+    var p = document.createElement("p");
+    p.style.cssText="text-align:center;margin:12px 0 0;font-weight:bold";
+    p.innerHTML = "⭐ Seu melhor placar até agora: <b>"+S.vf.melhor+" de 12</b> ("+S.vf.rodadas+" rodada(s) jogada(s)).";
+    wrap.appendChild(p);
+  }
+  novaRodadaVF();
+}
+function novaRodadaVF(){
+  vfEstado = {lista: embaralhar(VF, Date.now()%100000).slice(0,12), i:0, acertos:0};
+  document.getElementById("vfCard").style.display = "block";
+  document.getElementById("vfFinal").className = "vf-final";
+  mostrarFraseVF();
+}
+function mostrarFraseVF(){
+  var e = vfEstado, f = e.lista[e.i];
+  document.getElementById("vfPos").textContent = "Frase "+(e.i+1)+" de 12";
+  document.getElementById("vfEstrelas").textContent = "⭐".repeat(e.acertos);
+  document.getElementById("vfBarra").style.width = Math.round(e.i/12*100)+"%";
+  document.getElementById("vfFrase").textContent = "🦦 “"+f.f+"”";
+  document.getElementById("vfExpl").className = "vf-expl";
+  var bv = document.getElementById("btnV"), bf = document.getElementById("btnF");
+  bv.disabled = false; bf.disabled = false; bv.style.opacity=1; bf.style.opacity=1;
+  bv.onclick = function(){ respVF(true); };
+  bf.onclick = function(){ respVF(false); };
+}
+function respVF(r){
+  var e = vfEstado, f = e.lista[e.i];
+  var certo = (r===f.v);
+  if(certo) e.acertos++;
+  var ex = document.getElementById("vfExpl");
+  ex.className = "vf-expl ver";
+  ex.style.background = certo ? "#E4F7E5" : "#FFD9D6";
+  ex.style.borderLeft = "6px solid "+(certo ? "#4CAF50" : "#E2483D");
+  ex.innerHTML = "<b>"+(certo ? "🎉 Acertou!" : "🤔 Quase!")+"</b> "+f.e;
+  document.getElementById("btnV").disabled = true;
+  document.getElementById("btnF").disabled = true;
+  document.getElementById("vfEstrelas").textContent = "⭐".repeat(e.acertos);
+  var b = document.createElement("button");
+  b.className = "btn-prox";
+  b.textContent = (e.i===11 ? "🏁 Ver meu resultado" : "➡️ Próxima frase");
+  b.onclick = function(){
+    e.i++;
+    if(e.i>=12) fimVF(); else mostrarFraseVF();
+  };
+  ex.appendChild(b);
+}
+function fimVF(){
+  var e = vfEstado;
+  S.vf.rodadas++;
+  if(e.acertos > S.vf.melhor) S.vf.melhor = e.acertos;
+  salvar("vf");
+  document.getElementById("vfCard").style.display = "none";
+  var fim = document.getElementById("vfFinal");
+  fim.className = "vf-final ver";
+  var pct = Math.round(e.acertos/12*100);
+  var msg = pct>=90 ? "Incrível! A Nina está impressionada! 🦦✨" :
+            pct>=70 ? "Muito bem! Você sabe bastante sobre rios, ar e ambiente!" :
+            pct>=50 ? "Bom trabalho! Dá uma olhada no Estojo da Nina e jogue de novo." :
+                      "Não desanime! Revise no Estojo da Nina e tente outra vez.";
+  fim.innerHTML = "<div class='trofeu'>"+(pct>=70?"🏆":"🦦")+"</div>"+
+    "<h3 style='margin:6px 0'>Você acertou "+e.acertos+" de 12 ("+pct+"%)</h3>"+
+    "<p class='estrelas'>"+"⭐".repeat(e.acertos)+"</p>"+
+    "<p>"+msg+"</p>"+
+    "<p style='font-size:.9rem;opacity:.8'>⭐ Melhor placar: <b>"+S.vf.melhor+" de 12</b></p>";
+  var b1 = document.createElement("button"); b1.className="btn-sec btn-sol";
+  b1.textContent = "🔁 Jogar de novo"; b1.onclick = novaRodadaVF;
+  var b2 = document.createElement("button"); b2.className="btn-prox";
+  b2.textContent = "🗺️ Agora revise no Resumo!"; b2.onclick = function(){ irPara("resumo"); };
+  fim.appendChild(b1); fim.appendChild(document.createElement("br")); fim.appendChild(b2);
+  if(!S.vf.concluido){
+    concluir("vf");
+    setTimeout(function(){
+      modal("✅ Rodada completa!",
+        "<p>Você jogou as 12 frases! O <b>🗺️ Estojo da Nina</b> (resumo) está destravado.</p>"+
+        "<p>Pode jogar quantas vezes quiser para melhorar o placar. 🦦</p>",
+        [{txt:"Ir para o Resumo 🗺️", fn:function(){ irPara("resumo"); }},{txt:"Jogar de novo", cls:"cinza", fn:novaRodadaVF}]);
+    }, 500);
+  }
+}
+
+/* =====================================================================
+   4) RESUMO
+   ===================================================================== */
+function renderResumo(){
+  var wrap = document.getElementById("resumoWrap");
+  ultimoRenderTrancado.resumo = !destravada("resumo");
+  if(!destravada("resumo")){ wrap.innerHTML = htmlCadeado("resumo"); ligarVoltar(wrap); return; }
+  var h = "";
+
+  h += "<h3 style='color:#2D3A5C;margin-top:24px'>"+RESUMO_TEMPO_TIT+"</h3><div class='linha-tempo'>";
+  RESUMO_TEMPO.forEach(function(t){
+    h += "<div class='lt-item'><b>"+t.t+"</b><br>"+t.d+"</div>";
+  });
+  h += "</div>";
+
+  h += "<h3 style='color:#2D3A5C;margin-top:28px'>📒 Todas as palavras importantes</h3><div class='grade'>";
+  RESUMO_PALAVRAS.forEach(function(p){
+    h += "<div class='palavra'><b>"+p[0]+"</b>"+p[1]+"</div>";
+  });
+  h += "</div>";
+
+  h += "<h3 style='color:#2D3A5C;margin-top:28px'>💛 Dicas de prova</h3>";
+  RESUMO_DICAS.forEach(function(d){ h += "<div class='postit'>"+d+"</div>"; });
+
+  h += "<h3 style='color:#2D3A5C;margin-top:28px'>🚨 Pegadinhas — cuidado com estas!</h3>";
+  RESUMO_ALERTAS.forEach(function(a){ h += "<div class='alerta'>"+a+"</div>"; });
+
+  h += "<h3 style='color:#2D3A5C;margin-top:28px'>⚡ Quiz relâmpago — clique para ver a resposta</h3>";
+  RESUMO_RELAMPAGO.forEach(function(r,i){
+    h += "<div class='relampago' data-i='"+i+"'><div class='q'>❓ "+r[0]+"</div><div class='r'>💡 "+r[1]+"</div></div>";
+  });
+
+  h += "<div class='pe-material' id='peResumo'></div>";
+  wrap.innerHTML = h;
+
+  wrap.querySelectorAll(".relampago .q").forEach(function(q){
+    q.onclick = function(){ q.parentNode.classList.toggle("ab"); };
+  });
+  pintarPeResumo();
+  setTimeout(checarRolagem, 300);
+}
+function pintarPeResumo(){
+  var el = document.getElementById("peResumo"); if(!el) return;
+  if(S.resumo.concluido){
+    el.innerHTML = "<p>✅ <b>Resumo lido até o fim!</b> Agora é a hora da verdade.</p>";
+    var b = document.createElement("button"); b.className="btn-prox";
+    b.textContent = "📝 Pronto para o Simulado!";
+    b.onclick = function(){ irPara("simulado"); };
+    el.appendChild(b);
+  }else{
+    el.innerHTML = "<p id='avisoRol' style='font-size:.92rem;opacity:.85'>Role a página até o fim para liberar o botão. (Lido: <b id='pctRol'>"+S.resumo.rolagem+"%</b>)</p>";
+    var b = document.createElement("button"); b.className="btn-prox"; b.id="btnLiResumo";
+    b.textContent = "✅ Li o resumo até o fim";
+    b.disabled = S.resumo.rolagem < 90;
+    b.onclick = function(){
+      concluir("resumo");
+      pintarPeResumo();
+      modal("🗺️ Resumo concluído!",
+        "<p>Boa! Agora <b>📝 A Grande Pintura</b> (simulado) está destravado.</p>"+
+        "<p>São 25 perguntas. Respire fundo — você estudou tudo! 🦦</p>",
+        [{txt:"Ir para o Simulado 📝", fn:function(){ irPara("simulado"); }},{txt:"Ficar aqui", cls:"cinza"}]);
+    };
+    el.appendChild(b);
+  }
+}
+function checarRolagem(){
+  if(abaAtual!=="resumo" || S.resumo.concluido) return;
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  var pct = h<=0 ? 100 : Math.round((window.scrollY / h) * 100);
+  if(pct > 100) pct = 100;
+  if(pct > S.resumo.rolagem){ S.resumo.rolagem = pct; salvar("resumo"); }
+  var p = document.getElementById("pctRol"); if(p) p.textContent = S.resumo.rolagem+"%";
+  var b = document.getElementById("btnLiResumo");
+  if(b && S.resumo.rolagem>=90){
+    b.disabled = false;
+    var a = document.getElementById("avisoRol");
+    if(a) a.innerHTML = "🎉 Você chegou ao fim! Pode clicar no botão.";
+  }
+  atualizarBarra();
+}
+window.addEventListener("scroll", function(){ checarRolagem(); });
+
+/* =====================================================================
+   5) SIMULADO
+   ===================================================================== */
+function renderSimulado(){
+  var wrap = document.getElementById("simWrap");
+  ultimoRenderTrancado.simulado = !destravada("simulado");
+  if(!destravada("simulado")){ wrap.innerHTML = htmlCadeado("simulado"); ligarVoltar(wrap); return; }
+  wrap.innerHTML = "<div class='barra-box'><div class='barra-fundo'><div class='barra-fill' id='simBarra'></div></div>"+
+                   "<div class='barra-txt'><span id='simTxt'></span></div></div>"+
+                   "<div id='simQs'></div>"+
+                   "<div class='pe-material' id='simPe'></div>"+
+                   "<div class='resultado' id='simRes'></div>";
+  var qs = document.getElementById("simQs");
+
+  SIM.forEach(function(q, i){
+    var certaTxt = q.a[q.c];
+    var ordem = embaralhar(q.a.map(function(t,k){return k;}), (i+1)*100 + 28);
+    q._ordem = ordem;
+    var d = document.createElement("div"); d.className = "sim-q"; d.id = "simq"+i;
+    d.innerHTML = "<span class='num-q'>Questão "+(i+1)+" de "+SIM.length+"</span>"+
+                  "<p class='enun'>"+q.q+"</p>";
+    var letras = "abcd";
+    ordem.forEach(function(oi, pos){
+      var bt = document.createElement("button");
+      bt.className = "sim-alt";
+      bt.innerHTML = "<b>"+letras[pos]+")</b> " + q.a[oi];
+      bt.dataset.orig = oi;
+      bt.onclick = function(){
+        if(S.simulado.enviado) return;
+        d.querySelectorAll(".sim-alt").forEach(function(x){ x.classList.remove("marcada"); });
+        bt.classList.add("marcada");
+        S.simulado.resp[i] = oi;
+        salvar("simulado"); atualizaSimBarra();
+      };
+      d.appendChild(bt);
+    });
+    var cm = document.createElement("div"); cm.className="sim-coment"; cm.id="coment"+i;
+    d.appendChild(cm);
+    qs.appendChild(d);
+    if(S.simulado.resp[i]!==undefined){
+      d.querySelectorAll(".sim-alt").forEach(function(x){
+        if(Number(x.dataset.orig)===S.simulado.resp[i]) x.classList.add("marcada");
+      });
+    }
+    void certaTxt;
+  });
+
+  var pe = document.getElementById("simPe");
+  var bt = document.createElement("button"); bt.className="btn-prox"; bt.id="btnEnviar";
+  bt.textContent = "🏁 Enviar minhas respostas";
+  bt.onclick = enviarSimulado;
+  pe.appendChild(bt);
+
+  if(S.simulado.enviado) mostrarGabarito();
+  atualizaSimBarra();
+}
+function atualizaSimBarra(){
+  var n = Object.keys(S.simulado.resp).length;
+  var el = document.getElementById("simBarra"); if(!el) return;
+  el.style.width = Math.round(n/SIM.length*100)+"%";
+  document.getElementById("simTxt").textContent = "Respondidas: "+n+" de "+SIM.length;
+  var b = document.getElementById("btnEnviar");
+  if(b && !S.simulado.enviado) b.disabled = (n < SIM.length);
+  if(b && !S.simulado.enviado && n<SIM.length) b.textContent = "🏁 Faltam "+(SIM.length-n)+" questão(ões)";
+  else if(b && !S.simulado.enviado) b.textContent = "🏁 Enviar minhas respostas";
+  atualizarBarra();
+}
+function enviarSimulado(){
+  var n = Object.keys(S.simulado.resp).length;
+  if(n < SIM.length) return;
+  modal("Enviar o simulado?",
+    "<p>Depois de enviar, o <b>gabarito comentado</b> aparece e você não pode mais trocar as respostas. Pode enviar?</p>",
+    [{txt:"Sim, enviar!", fn:confirmaEnvio},{txt:"Ainda não", cls:"cinza"}]);
+}
+function confirmaEnvio(){
+  var ac = 0;
+  SIM.forEach(function(q,i){ if(S.simulado.resp[i]===q.c) ac++; });
+  S.simulado.enviado = true; S.simulado.acertos = ac;
+  var letras = "ABCDEFGHJKLMNPQRSTUVWXYZ"; /* sem I e sem O */
+  var yy = letras[Math.floor(Math.random()*letras.length)] + letras[Math.floor(Math.random()*letras.length)];
+  S.simulado.codigo = "SIM-" + ("0"+ac).slice(-2) + "-" + yy;
+  salvar("simulado");
+  concluir("simulado");
+  mostrarGabarito();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+function mostrarGabarito(){
+  var letras = "abcd";
+  SIM.forEach(function(q,i){
+    var d = document.getElementById("simq"+i); if(!d) return;
+    var ordem = q._ordem || q.a.map(function(t,k){return k;});
+    d.querySelectorAll(".sim-alt").forEach(function(x, pos){
+      x.disabled = true;
+      var oi = Number(x.dataset.orig);
+      x.classList.remove("marcada");
+      if(oi===q.c) x.classList.add("gab-certa"); else x.classList.add("gab-errada");
+      if(oi===S.simulado.resp[i] && oi!==q.c) x.innerHTML = x.innerHTML + " &nbsp;← <b>você marcou</b>";
+      if(oi===q.c && oi===S.simulado.resp[i]) x.innerHTML = x.innerHTML + " &nbsp;✅ <b>você acertou!</b>";
+    });
+    var posCerta = ordem.indexOf(q.c);
+    var cm = document.getElementById("coment"+i);
+    var html = "<p class='ce'>✅ Resposta certa: letra "+letras[posCerta]+") "+q.a[q.c]+"</p><ul>";
+    ordem.forEach(function(oi,pos){
+      html += "<li><b>"+letras[pos]+")</b> "+(oi===q.c ? "<b>Certa.</b> " : "Errada. ")+q.fb[oi]+"</li>";
+    });
+    html += "</ul>";
+    cm.innerHTML = html; cm.className = "sim-coment ver";
+  });
+  var pe = document.getElementById("simPe"); if(pe) pe.innerHTML = "";
+  var r = document.getElementById("simRes");
+  var ac = S.simulado.acertos, pct = Math.round(ac/SIM.length*100);
+  var msg = pct>=90 ? "Uau! Você está pronto para a prova! 🦦🏆" :
+            pct>=70 ? "Muito bom! Dá uma revisada nas que erraram e você fica craque." :
+            pct>=50 ? "Bom começo! Volte ao Estojo da Nina e releia as pegadinhas." :
+                      "Calma! Releia o Estojo da Nina e os lápis da leitura — você consegue.";
+  r.className = "resultado ver";
+  r.innerHTML = "<div class='trofeu'>"+(pct>=70?"🏆":"🦦")+"</div>"+
+    "<h3 style='margin:6px 0'>Você acertou "+ac+" de "+SIM.length+" ("+pct+"%)</h3>"+
+    "<p>"+msg+"</p>"+
+    "<p style='font-size:.92rem;margin-top:16px'>Mostre este código para um adulto:</p>"+
+    "<div class='codigo'>"+S.simulado.codigo+"</div>"+
+    "<p style='font-size:.88rem;opacity:.8'>Com ele os pais abrem o <b>Relatório</b> lá embaixo. O gabarito comentado de cada questão já está acima. 👆</p>";
+}
+
+/* ---------- cadeado nos painéis ---------- */
+function htmlCadeado(id){
+  return "<div class='cadeado-aviso'><span class='big'>🔒</span>"+
+    "<h3>Esta etapa ainda está trancada</h3>"+
+    "<p>"+fraseCadeado(id)+"</p>"+
+    "<button class='btn-voltar' data-voltar='1'>⬅️ Voltar ao início</button></div>";
+}
+function ligarVoltar(wrap){
+  var b = wrap.querySelector("[data-voltar]");
+  if(b) b.onclick = function(){ irPara("leitura"); };
+}
+
+/* =====================================================================
+   SALVAMENTO / RELATÓRIO
+   ===================================================================== */
+function marcaSalvo(){
+  var el = document.getElementById("saveInfo");
+  if(el) el.textContent = "✅ Salvo automaticamente em "+fmtData(new Date().toISOString())+".";
+}
+function pacote(){
+  return {
+    kit:"Lápis da Natureza — Geografia 3º ano (Un. 11 e 12)",
+    exportadoEm: agora(),
+    leitura:S.leitura, mapa:S.mapa, vf:S.vf, resumo:S.resumo, simulado:S.simulado, trilha:S.trilha
+  };
+}
+document.getElementById("btnExportar").onclick = function(){
+  var a = document.createElement("a");
+  a.href = "data:application/json;charset=utf-8,"+encodeURIComponent(JSON.stringify(pacote(),null,2));
+  a.download = "lapis-da-natureza-progresso.json";
+  a.click();
+};
+document.getElementById("btnImportar").onclick = function(){ document.getElementById("fileImp").click(); };
+document.getElementById("fileImp").onchange = function(ev){
+  var f = ev.target.files[0]; if(!f) return;
+  var fr = new FileReader();
+  fr.onload = function(){
+    try{
+      var o = JSON.parse(fr.result);
+      ["leitura","mapa","vf","resumo","simulado","trilha"].forEach(function(k){
+        if(o[k]){ S[k] = o[k]; salvar(k); }
+      });
+      modal("📤 Progresso importado!","<p>Tudo certo! A página vai recarregar para mostrar o seu progresso.</p>",
+        [{txt:"Ok", fn:function(){ location.reload(); }}]);
+    }catch(e){
+      modal("Ops!","<p>Não consegui ler esse arquivo. Tente exportar de novo no outro aparelho.</p>",[{txt:"Fechar"}]);
+    }
+  };
+  fr.readAsText(f);
+};
+document.getElementById("btnZerar").onclick = function(){
+  modal("🗑️ Zerar tudo?",
+    "<p>Isso apaga <b>todo o progresso</b> deste kit neste aparelho: os lápis da leitura, o mapa, o jogo, o resumo e o simulado. A trilha volta a ficar trancada.</p><p>Tem certeza?</p>",
+    [{txt:"Sim, apagar tudo", fn:function(){ apagarTudo(); location.reload(); }},{txt:"Não, cancelar", cls:"cinza"}]);
+};
+
+document.getElementById("btnRel").onclick = function(){
+  var c = document.getElementById("inpCod").value.trim().toUpperCase();
+  var ok = (c==="PAIS-77") || (S.simulado.codigo && c===S.simulado.codigo);
+  if(!ok){
+    modal("Código não confere","<p>Digite o código que apareceu no fim do Simulado (<b>SIM-…</b>) ou o código da família.</p>",[{txt:"Fechar"}]);
+    return;
+  }
+  mostrarRelatorio(c==="PAIS-77");
+};
+function mostrarRelatorio(ehPais){
+  var r = document.getElementById("relatorio");
+  var certasL = 0, totalL = 0;
+  LEITURA.forEach(function(g,i){
+    var b = S.leitura.blocos[i];
+    g.qs.forEach(function(_,qi){
+      totalL++;
+      if(b && b.primeira && b.primeira[qi]) certasL++;
+    });
+  });
+  var lacPrim = 0;
+  for(var k in S.mapa.lac){ if(S.mapa.lac[k] && S.mapa.lac[k].primeira) lacPrim++; }
+
+  var h = "<h4 style='margin:0 0 10px;color:#2D3A5C'>📊 Como foi o estudo</h4><table>";
+  h += "<tr><th>Material</th><th>Resultado</th></tr>";
+  h += "<tr><td>📖 Leitura Guiada</td><td>"+galeriasFeitas()+" de "+TOTAL_GAL+" lápis concluídos · <b>"+certasL+" de "+totalL+"</b> perguntas certas de primeira</td></tr>";
+  h += "<tr><td>🧠 Mapa das Cores</td><td>"+lacunasFeitas()+" de "+TOTAL_LAC+" peças encaixadas · <b>Mapa Mental: "+lacPrim+" de "+TOTAL_LAC+" peças encaixadas de primeira</b></td></tr>";
+  h += "<tr><td>✅ Colorido ou Borrado?</td><td>"+(S.vf.rodadas? ("melhor placar <b>"+S.vf.melhor+" de 12</b> · "+S.vf.rodadas+" rodada(s)") : "ainda não jogou")+"</td></tr>";
+  h += "<tr><td>🗺️ Estojo da Nina (Resumo)</td><td>leu <b>"+S.resumo.rolagem+"%</b> da página"+(S.resumo.concluido?" · confirmou que leu até o fim":"")+"</td></tr>";
+  h += "<tr><td>📝 A Grande Pintura</td><td>"+(S.simulado.enviado ? ("<b>"+S.simulado.acertos+" de "+SIM.length+"</b> ("+Math.round(S.simulado.acertos/SIM.length*100)+"%) · código "+S.simulado.codigo) : "ainda não enviou")+"</td></tr>";
+  h += "</table>";
+
+  h += "<h4 style='margin:18px 0 8px;color:#2D3A5C'>🛤️ Trilha — a ordem que a criança seguiu</h4><table>";
+  h += "<tr><th>Etapa</th><th>Situação</th></tr>";
+  ETAPAS.forEach(function(e){
+    h += "<tr><td>"+e.icone+" "+e.nome+"</td><td>"+
+         (S[e.id].concluido ? "✅ concluída em "+fmtData(S[e.id].concluidoEm) : "⬜ ainda não concluída")+"</td></tr>";
+  });
+  h += "</table>";
+  if(S.trilha.liberadoPelosPais){
+    h += "<p class='selo-lib'>🔓 Trilha liberada pelos pais em "+fmtData(S.trilha.liberadoEm)+"</p>";
+  }
+
+  /* questões erradas do simulado */
+  if(S.simulado.enviado){
+    var erradas = [];
+    SIM.forEach(function(q,i){ if(S.simulado.resp[i]!==q.c) erradas.push(i+1); });
+    h += "<h4 style='margin:18px 0 8px;color:#2D3A5C'>🔁 Para revisar</h4>";
+    h += erradas.length ? "<p>Questões erradas no simulado: <b>"+erradas.join(", ")+"</b>. O gabarito comentado explica cada uma.</p>"
+                        : "<p>🎉 Acertou todas as questões do simulado!</p>";
+  }
+
+  r.innerHTML = h;
+
+  if(ehPais){
+    var cx = document.createElement("div");
+    cx.style.marginTop = "14px";
+    if(!S.trilha.liberadoPelosPais){
+      var b = document.createElement("button");
+      b.className = "b-exp"; b.style.cssText="border:none;border-radius:11px;padding:10px 15px;font-family:inherit;font-weight:bold;cursor:pointer;color:#fff;background:#2F80C2";
+      b.textContent = "🔓 Liberar todos os materiais";
+      b.onclick = function(){
+        modal("🔓 Liberar a trilha inteira?",
+          "<p>Todos os materiais ficam abertos, mesmo os que a criança ainda não concluiu.</p>"+
+          "<p>Use quando ela estudou de outro jeito (no caderno, com você) ou trocou de aparelho e o progresso não veio junto.</p>",
+          [{txt:"Sim, liberar", fn:function(){
+              S.trilha.liberadoPelosPais = true; S.trilha.liberadoEm = agora();
+              salvar("trilha"); montarAbas(); renderTudo(); mostrarRelatorio(true);
+           }},{txt:"Cancelar", cls:"cinza"}]);
+      };
+      cx.appendChild(b);
+    }else{
+      var b2 = document.createElement("button");
+      b2.style.cssText="border:none;border-radius:11px;padding:10px 15px;font-family:inherit;font-weight:bold;cursor:pointer;color:#fff;background:#E2483D";
+      b2.textContent = "🔒 Trancar de novo";
+      b2.onclick = function(){
+        S.trilha.liberadoPelosPais = false; S.trilha.liberadoEm = null;
+        salvar("trilha"); montarAbas(); renderTudo(); mostrarRelatorio(true);
+      };
+      cx.appendChild(b2);
+    }
+    r.appendChild(cx);
+  }
+  r.className = "ver";
+}
+
+/* =====================================================================
+   INICIALIZAÇÃO
+   ===================================================================== */
+function renderTudo(){
+  renderLeitura(); renderMapa(); renderVF(); renderResumo(); renderSimulado();
+}
+carregar();
+ETAPAS.forEach(function(e){ destravadasAntes[e.id] = destravada(e.id); });
+montarAbas();
+renderTudo();
+irPara(
+  !S.leitura.concluido ? "leitura" :
+  !S.mapa.concluido ? "mapa" :
+  !S.vf.concluido ? "vf" :
+  !S.resumo.concluido ? "resumo" : "simulado"
+);
+if(ler(K.leitura)) marcaSalvo();
+
+})();
+
+</script>
+</body>
+</html>
